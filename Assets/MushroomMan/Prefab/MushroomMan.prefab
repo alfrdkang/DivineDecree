@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5312254207850949179}
+  - component: {fileID: 2951883146725264970}
   m_Layer: 0
   m_Name: MushroomMan
   m_TagString: Untagged
@@ -32,6 +33,29 @@ Transform:
   - {fileID: 411067562678095300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2951883146725264970
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413801501614924322}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.4210756
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.63757014, z: 0}
 --- !u!1001 &161811519739292207
 PrefabInstance:
   m_ObjectHideFlags: 0
