@@ -7,16 +7,22 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
-[System.Serializable]
-public class Dialogue
+[CreateAssetMenu]
+public class Dialogue : ScriptableObject
 {
     /// <summary>
     /// Stores Dialogue Sentences
     /// </summary>
     [TextArea(3, 10)]
     public string[] sentences;
+
+    /// <summary>
+    /// Stores Dialogue Audio
+    /// </summary>
+    public AudioClip[] clips;
 
     /// <summary>
     /// Stores Dialogue Names
