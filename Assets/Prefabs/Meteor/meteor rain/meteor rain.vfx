@@ -35,7 +35,7 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 0
+    x: -0
     y: -345
     width: 4998
     height: 2440
@@ -129,7 +129,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 30
+      m_SerializableObject: 15
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -2506,7 +2506,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 30
+      m_SerializableObject: 15
     m_Space: 2147483647
   m_Property:
     name: o

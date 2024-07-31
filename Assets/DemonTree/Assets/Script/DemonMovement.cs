@@ -21,22 +21,22 @@ public class DemonMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	        if (Input.GetKeyDown(KeyCode.W)) {
+	        if (Input.GetKeyDown(KeyCode.P)) {
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("Idles")) {
 				anim.SetBool(hIdles, false);
 				anim.SetBool(hAngry, true);
 	             }
-	        } else if (Input.GetKeyDown(KeyCode.S)) {
+	        } else if (Input.GetKeyDown(KeyCode.O)) {
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("Idles")) {
 				anim.SetBool(hIdles, false);
 				anim.SetBool(hAttack, true);
 			    }
-	        } else if (Input.GetKeyDown(KeyCode.A)) {
+	        } else if (Input.GetKeyDown(KeyCode.K)) {
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("Idles")) {
 				anim.SetBool(hIdles, false);
 				anim.SetBool(hGrabs, true);
 			    }
-			} else if (Input.GetKeyDown(KeyCode.D)) {
+			} else if (Input.GetKeyDown(KeyCode.I)) {
 			if(anim.GetCurrentAnimatorStateInfo(0).IsName("Idles")) {
 				anim.SetBool(hIdles, false);
 				anim.SetBool(hThumbsUp, true);
