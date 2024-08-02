@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc702b2ca57f9e488616939ace6d82d, type: 3}
+  m_Name: xiongxiaomiaoDialogue
+  m_EditorClassIdentifier: 
+  sentences:
+  - "Excuse me, we are travelers passing through this area. We've heard about some
+    disturbances here and wanted to check if everything is alright. What\u2019s going
+    on?"
+  - "It\u2019s been a rough time. Our leader, Dashi, is very ill. We believe the
+    artifact that we recently acquired from the mushroom village can heal him."
+  - An artifact? What kind of artifact is it? Is it shiny?
+  - "It\u2019s said to hold great power. Our hope is that it can cure Dashi of his
+    disease."
+  - That sound serious. How is Dashi doing now?
+  - "He\u2019s stable for now, but we need to find a way to use the artifact properly.
+    The knowledge on how to use it was lost a long time ago. Dashi and his bodyguard
+    have gone to the Ice Land to seek the Woolly Mammoth, hoping it might have the
+    knowledge we need."
+  - That sounds challenging. We hope Dashi gets better soon. Is there anything we
+    can do to help? Or are we just supposed to stand here?
+  - Just keep your eyes and ears open. If you hear anything about how to use the
+    artifact, let us know. Maybe Ci can help you. She knows about the Ice Land and
+    the Woolly Mammoth.
+  - We will. Thanks for the information.
+  clips:
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 2fc697c571b8e49089dcfc8f68024a31, type: 3}
+  - {fileID: 8300000, guid: 639e4db582cbc4a7ab4f74d05a91d7f1, type: 3}
+  - {fileID: 8300000, guid: 53a9c868a092d4d53a6ebb6e02efe968, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 6bc55a74348954a0ca0965d144258f99, type: 3}
+  - {fileID: 8300000, guid: b0489a483b4984f37bf80318ff53fd21, type: 3}
+  - {fileID: 8300000, guid: 9cc266eda057a442d9764fdb76548890, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  names:
+  - Player
+  - Xiaomiao
+  - Companion
+  - Xiong
+  - Player
+  - XIaomiao
+  - Companion
+  - Xiong
+  - Player

@@ -15,7 +15,7 @@ using Cinemachine;
 public class NPC : Interactable
 {
     public CinemachineVirtualCamera diagVirtualCamera;
-    public Dialogue sageDialogue;
+    public Dialogue dialogue;
 
     /// <param name="gameManager">The GameManager instance managing the game.</param>
     /// <param name="interactText">The UI text to display interaction prompts.</param>
@@ -29,7 +29,7 @@ public class NPC : Interactable
         if (_input.interact)
         {
             diagVirtualCamera.Follow = transform;
-            TriggerDialogue(sageDialogue);
+            TriggerDialogue(dialogue);
             _input.interact = false; // Reset interact input
         }
     }
