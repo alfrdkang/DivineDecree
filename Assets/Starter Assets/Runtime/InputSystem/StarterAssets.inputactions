@@ -60,15 +60,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Slide",
-                    "type": "PassThrough",
-                    "id": "cc05af50-173d-46b4-a3e9-09bfa30d9ff3",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Primary",
                     "type": "Button",
                     "id": "a3ae2da0-5c2e-4443-97b2-c433a73f795b",
@@ -319,17 +310,6 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Reload",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4ca27a48-2f97-4b17-89f9-5a13d5c47e2e",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Slide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

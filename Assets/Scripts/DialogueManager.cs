@@ -102,6 +102,8 @@ public class DialogueManager : MonoBehaviour
         clips.Clear();
         names.Clear();
 
+        audioSource.Stop();
+
         diagVirtualCamera.gameObject.SetActive(false);
         diagActive = false;
         DiagUI.SetActive(false);

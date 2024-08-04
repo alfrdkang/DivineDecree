@@ -7,6 +7,7 @@ namespace StarterAssets
 {
     public class StarterAssetsInputs : MonoBehaviour
     {
+
         [Header("Character Input Values")]
         public Vector2 move;
         public Vector2 look;
@@ -14,7 +15,6 @@ namespace StarterAssets
         public bool sprint;
         public bool shoot;
         public bool reload;
-        public bool slide;
         public bool primary;
         public bool secondary;
         public bool pause;
@@ -64,10 +64,6 @@ namespace StarterAssets
         {
             ReloadInput(value.isPressed);
         }
-        public void OnSlide(InputValue value)
-        {
-            SlideInput(value.isPressed);
-        }
         public void OnPrimary(InputValue value)
         {
             PrimaryInput(value.isPressed);
@@ -90,56 +86,49 @@ namespace StarterAssets
         }
 
 #endif
-
-
         public void MoveInput(Vector2 newMoveDirection)
         {
-            move = newMoveDirection;
+            if (!pause) move = newMoveDirection; else move = Vector2.zero;
         }
 
         public void LookInput(Vector2 newLookDirection)
         {
-            look = newLookDirection;
+            if (!pause) look = newLookDirection; else look = Vector2.zero;
         }
 
         public void JumpInput(bool newJumpState)
         {
-            jump = newJumpState;
+            if (!pause) jump = newJumpState;
         }
 
         public void SprintInput(bool newSprintState)
         {
-            sprint = newSprintState;
-        }
-
-        public void AimInput(bool newAimState)
-        {
-            aim = newAimState;
+            if (!pause) sprint = newSprintState;
         }
 
         public void ShootInput(bool newShootState)
         {
-            shoot = newShootState;
+            if (!pause) shoot = newShootState;
         }
 
         public void ReloadInput(bool newReloadState)
         {
-            reload = newReloadState;
+            if (!pause) reload = newReloadState;
         }
 
-        public void SlideInput(bool newSlideState)
+        public void AimInput(bool newAimState)
         {
-            slide = newSlideState;
+            if (!pause) aim = newAimState;
         }
 
         public void PrimaryInput(bool newPrimaryState)
         {
-            primary = newPrimaryState;
+            if (!pause) primary = newPrimaryState;
         }
 
         public void SecondaryInput(bool newSecondaryState)
         {
-            secondary = newSecondaryState;
+            if (!pause) secondary = newSecondaryState;
         }
 
         public void PauseInput(bool newPauseState)
@@ -149,12 +138,12 @@ namespace StarterAssets
 
         public void CrouchInput(bool newCrouchState)
         {
-            crouch = newCrouchState;
+            if (!pause) crouch = newCrouchState;
         }
 
         public void InteractInput(bool newInteractState)
         {
-            interact = newInteractState;
+            if (!pause) interact = newInteractState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

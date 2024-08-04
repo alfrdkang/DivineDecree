@@ -30,16 +30,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private int playerMaxHealth = 75;
 
-    /// <summary>
-    /// The number of objective collectibles obtained by the player.
-    /// </summary>
-    public int partsObtained = 0;
-
-    /// <summary>
-    /// Indicates if a new scene has been loaded.
-    /// </summary>
-    public bool newScene = false;
-
     [SerializeField] private GameObject player;
     [SerializeField] private Slider playerHealthBar;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -49,27 +39,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject bgBlur;
 
-    /// <summary>
-    /// The starting positions for each scene by index.
-    /// </summary>
-    public Vector3[] sceneIndexStartPos = new Vector3[]
-    {
-        Vector3.zero,                                           // main menu
-        new Vector3(-25.1399994f, 0, -78.4000015f),             // spaceship
-        new Vector3(-23.0100002f, -0.0799999982f, -114.620003f),// world
-        new Vector3(8.89999962f, 43.9000015f, -200.199997f)     // cave
-    };
-
     private void FixedUpdate()
     {
-        if (newScene == true)
-        {
-            UpdateHealthUI();
-            player.transform.localPosition = sceneIndexStartPos[SceneManager.GetActiveScene().buildIndex];
-            player.transform.rotation = Quaternion.Euler(Vector3.zero);
-            newScene = false;
-        }
-
         if (_inputs.interact)
         {
             _inputs.interact = false;
@@ -107,7 +78,6 @@ public class GameManager : MonoBehaviour
     public void MoveToScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
-        newScene = true;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -170,7 +140,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void UpdateHealthUI()
     {
-        healthText.SetText(playerHealth.ToString() + "/" + playerMaxHealth.ToString());
+        healthText.SetText(playerHealth.ToString() + "/" + playerMaxHealth.ToString()); 
         playerHealthBar.value = playerHealth;
         playerHealthBar.maxValue = playerMaxHealth;
     }   
