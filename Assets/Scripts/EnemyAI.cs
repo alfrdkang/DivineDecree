@@ -52,6 +52,7 @@ public class EnemyAI : MonoBehaviour
         cam = Camera.main; // Get reference to the main camera
         animator = GetComponent<Animator>(); // Get reference to the Animator component
         player = GameObject.FindGameObjectWithTag("Player").transform; // Find and assign player's transform
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); // Find and assign player's transform
         agent = GetComponent<NavMeshAgent>(); // Get reference to the NavMeshAgent component
         health = maxHealth; // Set initial health to maximum
 
@@ -127,7 +128,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Attack()
     {
-        agent.SetDestination(player.position); // Set destination to player's position
+        agent.SetDestination(transform.position); // Set destination to player's position
         transform.LookAt(player); // Rotate to face player
     }
 
@@ -149,7 +150,7 @@ public class EnemyAI : MonoBehaviour
         if (health <= 0)
         {
             agent.SetDestination(transform.position); // Stop moving
-            Destroy(GetComponent<SphereCollider>()); // Disable collider
+            Destroy(GetComponent<CapsuleCollider>()); // Disable collider
             animator.Play("Die"); // Play death animation
             Invoke(nameof(DestroyEnemy), 1f); // Destroy enemy after delay
         }

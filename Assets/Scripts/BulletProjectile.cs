@@ -16,14 +16,16 @@ public class BulletProjectile : MonoBehaviour
 
     private void Start()
     {
-        float speed = 10f;
+        float speed = 30f;
         rb.velocity = transform.forward * speed;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BulletTarget>() != null)
+        if (other.tag == "Enemy")
         {
+            Debug.Log("Enemy Hit!");
+            other.gameObject.GetComponent<EnemyAI>().TakeDamage(1);
             Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
         } else
         {

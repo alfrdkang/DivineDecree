@@ -23,15 +23,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// The player's current health.
     /// </summary>
-    public int playerHealth = 75;
+    public float playerHealth = 75f;
 
     /// <summary>
     /// The player's maximum health.
     /// </summary>
-    private int playerMaxHealth = 75;
+    private float playerMaxHealth = 75f;
 
     [SerializeField] private GameObject player;
-    [SerializeField] private Slider playerHealthBar;
+    [SerializeField] private Image playerHealthBar;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private StarterAssetsInputs _inputs;
     [SerializeField] private GameObject deathMenu;
@@ -141,7 +141,6 @@ public class GameManager : MonoBehaviour
     public void UpdateHealthUI()
     {
         healthText.SetText(playerHealth.ToString() + "/" + playerMaxHealth.ToString()); 
-        playerHealthBar.value = playerHealth;
-        playerHealthBar.maxValue = playerMaxHealth;
+        playerHealthBar.fillAmount = playerHealth / playerMaxHealth;
     }   
 }
