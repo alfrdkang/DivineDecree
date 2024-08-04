@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class TreeBoss : MonoBehaviour
 {
-    public Transform Player;
+    public Transform player;
     public float attackRange = 10.0f; // Set your desired attack range
     private NavMeshAgent agent;
     private Animator anim;
@@ -36,14 +36,7 @@ public class TreeBoss : MonoBehaviour
 
     void Update()
     {
-        // Check if the player is within attack range and the boss is not returning to the original position
-        if (!isReturningToOriginalPosition && Vector3.Distance(transform.position, Player.position) <= attackRange)
-        {
-            // Start attack animation
-            anim.SetTrigger(hAttack);
-            agent.isStopped = true; // Stop the agent to perform the attack animation
-        }
-        else if (isReturningToOriginalPosition)
+        if (isReturningToOriginalPosition)
         {
             // Ensure the NavMeshAgent is moving to the original position
             agent.SetDestination(originalPosition);
@@ -56,11 +49,26 @@ public class TreeBoss : MonoBehaviour
         }
         else
         {
-            // Update destination to player position if not returning to original position
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Idles"))
+            // Check if the player is within the attack range and on the NavMesh
+            if (Vector3.Distance(transform.position, player.position) <= attackRange && NavMesh.SamplePosition(player.position, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
             {
-                agent.isStopped = false;
-                agent.SetDestination(Player.position);
+                // Start attack animation
+                anim.SetTrigger(hAttack);
+                agent.isStopped = true; // Stop the agent to perform the attack animation
+            }
+            else
+            {
+                // Update destination to player position if not returning to original position and player is on the NavMesh
+                if (NavMesh.SamplePosition(player.position, out NavMeshHit navMeshHit, 1.0f, NavMesh.AllAreas))
+                {
+                    agent.isStopped = false;
+                    agent.SetDestination(player.position);
+                }
+                else
+                {
+                    // Return to original position if the player is not on the NavMesh
+                    isReturningToOriginalPosition = true;
+                }
             }
         }
     }
