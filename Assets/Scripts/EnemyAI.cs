@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private int damage; // Amount of damage dealt to the player
     [SerializeField] private Image healthbar; // UI element displaying health bar
     [SerializeField] private GameObject healthBarCanvas; // Canvas containing health bar UI
+    [SerializeField] private GameObject damageText; // Text displaying damage enemy took
     private Camera cam; // Main camera reference
     private Animator animator; // Animator component reference
     private GameManager gameManager; // Reference to the game manager
@@ -147,6 +148,9 @@ public class EnemyAI : MonoBehaviour
         health -= damage; // Reduce health
         UpdateHealthBar(health, maxHealth); // Update health bar UI
 
+        DamageHitmarker indicator = Instantiate(damageText, healthBarCanvas.transform.position, Quaternion.identity).GetComponent<DamageHitmarker>();
+        indicator.SetDamageText(damage);
+
         if (health <= 0)
         {
             agent.SetDestination(transform.position); // Stop moving
@@ -160,7 +164,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (!attacked)
+            if (!attacked) 
             {
                 animator.Play("Attack"); // Play attack animation
                 gameManager.PlayerDamage(damage); // Damage player

@@ -5275,7 +5275,7 @@ Transform:
   m_GameObject: {fileID: 380268788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.324, z: 0.532}
+  m_LocalPosition: {x: 0, y: 1.453, z: 0.532}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9639,6 +9639,8 @@ MonoBehaviour:
   debugRayTransform: {fileID: 306226263}
   bullet: {fileID: 5787253348791769536, guid: 40fb7c101e0f74daaabc7d7706ae5c93, type: 3}
   spawnBulletPosition: {fileID: 380268789}
+  bulletProjectile: {fileID: 4645515229717544738, guid: 40fb7c101e0f74daaabc7d7706ae5c93,
+    type: 3}
 --- !u!1 &1764214107
 GameObject:
   m_ObjectHideFlags: 0
@@ -16852,6 +16854,8 @@ MonoBehaviour:
   damage: 3
   healthbar: {fileID: 5099316988371740475}
   healthBarCanvas: {fileID: 2301934423655670532}
+  damageText: {fileID: 1065708148781696161, guid: e152e4b7d0ac7468e96beb9950acc09c,
+    type: 3}
   walkPointRange: 10
   timeBetweenAttacks: 3
   sightRange: 8
@@ -17960,7 +17964,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -21951,7 +21955,7 @@ Animator:
   m_GameObject: {fileID: 4416926083347132227}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a81c8ab58da52d747a93c2776953b6e0, type: 3}
-  m_Controller: {fileID: 9100000, guid: 48dae4f3b891ba04389c495206459dec, type: 2}
+  m_Controller: {fileID: 9100000, guid: 40db3173a05ae3242b1c182a09b0a183, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
