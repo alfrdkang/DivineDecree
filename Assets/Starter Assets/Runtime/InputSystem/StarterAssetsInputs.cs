@@ -21,6 +21,7 @@ namespace StarterAssets
         public bool crouch;
         public bool interact;
         public bool aim;
+        public bool skill;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -64,14 +65,6 @@ namespace StarterAssets
         {
             ReloadInput(value.isPressed);
         }
-        public void OnPrimary(InputValue value)
-        {
-            PrimaryInput(value.isPressed);
-        }
-        public void OnSecondary(InputValue value)
-        {
-            SecondaryInput(value.isPressed);
-        }
         public void OnPause(InputValue value)
         {
             PauseInput(value.isPressed);
@@ -83,6 +76,10 @@ namespace StarterAssets
         public void OnInteract(InputValue value)
         {
             InteractInput(value.isPressed);
+        }
+        public void OnSkill(InputValue value)
+        {
+            SkillInput(value.isPressed);
         }
 
 #endif
@@ -144,6 +141,11 @@ namespace StarterAssets
         public void InteractInput(bool newInteractState)
         {
             if (!pause) interact = newInteractState;
+        }
+
+        public void SkillInput(bool newSkillState)
+        {
+            if (!pause) skill = newSkillState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

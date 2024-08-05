@@ -8,7 +8,8 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] private Transform vfxHitRed;
 
     private Rigidbody rb;
-    public int damage = 1;
+    public int baseDamage = 1;
+    public int damage;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class BulletProjectile : MonoBehaviour
 
     private void Start()
     {
+        damage = baseDamage;
         float speed = 30f;
         rb.velocity = transform.forward * speed;
     }

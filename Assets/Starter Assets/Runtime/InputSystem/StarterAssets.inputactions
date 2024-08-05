@@ -60,24 +60,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Primary",
-                    "type": "Button",
-                    "id": "a3ae2da0-5c2e-4443-97b2-c433a73f795b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Secondary",
-                    "type": "Button",
-                    "id": "cf79a843-c0ac-4b37-8982-c518a794ffc5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Pause",
                     "type": "Button",
                     "id": "fc465f79-fd38-4e77-9440-bff776f68df4",
@@ -99,6 +81,15 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "79da26ee-85c3-4453-9f04-d74935a3ba71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill",
+                    "type": "Button",
+                    "id": "87d9cb62-ea85-45d6-9ac2-289af1b8c3d0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -315,28 +306,6 @@
                 },
                 {
                     "name": "",
-                    "id": "554acbdd-1707-4117-b5f2-aded4df8201b",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Primary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4f278ded-fd0c-4e01-9d1c-c692e856cbd6",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Secondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7f2e8441-20ed-48f8-b1a3-91f346a4c598",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -376,6 +345,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd69ec1f-6c5b-4366-a0d8-26c5fecd55be",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

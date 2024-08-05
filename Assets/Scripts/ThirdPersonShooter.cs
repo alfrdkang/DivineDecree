@@ -4,7 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using StarterAssets;
 using System;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class ThirdPersonShooter : MonoBehaviour
 {
@@ -16,18 +16,21 @@ public class ThirdPersonShooter : MonoBehaviour
     [SerializeField] private Transform bullet;
     [SerializeField] private Transform spawnBulletPosition;
     [SerializeField] private BulletProjectile bulletProjectile;
-
+    [SerializeField] private Image chargedLoading;
+    [SerializeField] private Image skillLoading;
 
     private bool _hasAnimator;
     private Animator _animator;
-    private float _animationBlend;
-
-    // animation IDs
     private int _animIDSpeed;
     private int _animIDAiming;
 
     private StarterAssetsInputs starterAssetsInputs;
     private ThirdPersonController thirdPersonController;
+
+    private bool canCharged = true;
+    private bool canSkill = true;
+    private float chargedCD = 2f;
+    private float skillCD = 5f;
 
     private void AssignAnimationIDs()
     {
@@ -39,6 +42,9 @@ public class ThirdPersonShooter : MonoBehaviour
     {
         _hasAnimator = TryGetComponent(out _animator);
         AssignAnimationIDs();
+
+        chargedLoading.fillAmount = 1;
+        skillLoading.fillAmount = 1;
 
         thirdPersonController = GetComponent<ThirdPersonController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
@@ -85,22 +91,39 @@ public class ThirdPersonShooter : MonoBehaviour
         {
             if (starterAssetsInputs.aim)
             {
-                _animator.SetTrigger("ChargedShot");
+                if (canCharged)
+                {
+                    canCharged = false;
+                    _animator.SetTrigger("ChargedShot");
 
-                starterAssetsInputs.shoot = false;
-                bulletProjectile.damage = bulletProjectile.damage * 5;
-                StartCoroutine(shootArrow(0f, 1, mouseWorldPosition));
-            }
-            else
+                    bulletProjectile.damage = bulletProjectile.damage * 5;
+                    StartCoroutine(ChargedCooldown(chargedLoading, chargedCD));
+                    StartCoroutine(ShootArrow(0f, 1, mouseWorldPosition));
+                }
+            } else
             {
                 _animator.SetTrigger("Shoot");
-                starterAssetsInputs.shoot = false;
-                StartCoroutine(shootArrow(0.2f, 3, mouseWorldPosition));
+                StartCoroutine(ShootArrow(0.2f, 3, mouseWorldPosition));
             }
+            starterAssetsInputs.shoot = false;
+        }
+
+        if (starterAssetsInputs.skill)
+        {
+            if (canSkill)
+            {
+                canSkill = false;
+                _animator.SetTrigger("Skill");
+
+                bulletProjectile.damage = bulletProjectile.damage * 10;
+                StartCoroutine(SkillCooldown(skillLoading, skillCD));
+                StartCoroutine(Skill());
+            }
+            starterAssetsInputs.skill = false;
         }
     }
 
-    private IEnumerator shootArrow(float timeBtwnShots, float numOfShots, Vector3 mouseWorldPosition)
+    private IEnumerator ShootArrow(float timeBtwnShots, float numOfShots, Vector3 mouseWorldPosition)
     {
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < numOfShots; i++)
@@ -109,6 +132,41 @@ public class ThirdPersonShooter : MonoBehaviour
             Vector3 aimDirection = (mouseWorldPosition - spawnBulletPosition.position).normalized;
             Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
         }
+        bulletProjectile.damage = bulletProjectile.baseDamage;
+    }
+
+    private IEnumerator Skill()
+    {
+        yield return new WaitForSeconds(1f);
+        Vector3 aimDirection = (Vector3.down * Time.deltaTime).normalized;
+        Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+        bulletProjectile.damage = bulletProjectile.baseDamage;
+    }
+
+    private IEnumerator SkillCooldown(Image loadingBar, float cooldown)
+    {
+        float t = 0;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / cooldown;
+            loadingBar.fillAmount = Mathf.Lerp(0, 1, t);
+
+            yield return null;
+        }
+        canSkill = true;
+    }
+
+    private IEnumerator ChargedCooldown(Image loadingBar, float cooldown)
+    {
+        float t = 0;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / cooldown;
+            loadingBar.fillAmount = Mathf.Lerp(0, 1, t);
+
+            yield return null;
+        }
+        canCharged = true;
     }
 }
 
