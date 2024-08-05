@@ -16,11 +16,11 @@ public class MeteorSpeed : MonoBehaviour
 
         if (impactPrefab == null)
         {
-            Debug.LogError("impactPrefab is not assigned in the Inspector.");
+          //  Debug.LogError("impactPrefab is not assigned in the Inspector.");
         }
         else
         {
-            Debug.Log("impactPrefab assigned correctly.");
+          //  Debug.Log("impactPrefab assigned correctly.");
         }
     }
 
