@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private float playerMaxHealth = 75f;
 
+    public float LerpDuration = 0.5f;
+
+    private Coroutine healthBarLerpCoroutine;
+
     [SerializeField] private GameObject player;
     [SerializeField] private Image playerHealthBar;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -38,6 +42,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject bgBlur;
+
+    [SerializeField] AnimationCurve experienceCurve;
+
+    public int currentLevel;
+    public int totalExperience;
+    public int previousLevelsExperience;
+    public int nextLevelsExperience;
+
+    [SerializeField] TextMeshProUGUI experienceText;
+    [SerializeField] Image experienceBar;
 
     private void FixedUpdate()
     {
@@ -60,6 +74,7 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateHealthUI();
+        UpdateLevel();
     }
 
     /// <summary>
@@ -140,7 +155,85 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void UpdateHealthUI()
     {
-        healthText.SetText(playerHealth.ToString() + "/" + playerMaxHealth.ToString()); 
-        playerHealthBar.fillAmount = playerHealth / playerMaxHealth;
-    }   
+        healthText.SetText(playerHealth.ToString() + "/" + playerMaxHealth.ToString());
+
+        if (healthBarLerpCoroutine != null)
+        {
+            StopCoroutine(healthBarLerpCoroutine);
+        }
+        healthBarLerpCoroutine = StartCoroutine(LerpHealthBar(playerHealth / playerMaxHealth));
+    }
+
+    private IEnumerator LerpHealthBar(float targetFillAmount)
+    {
+        float startFillAmount = playerHealthBar.fillAmount;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < LerpDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            playerHealthBar.fillAmount = Mathf.Lerp(startFillAmount, targetFillAmount, elapsedTime / LerpDuration);
+            yield return null;
+        }
+
+        playerHealthBar.fillAmount = targetFillAmount;
+    }
+
+    private IEnumerator LerpExperienceBar(float targetFillAmount)
+    {
+        float startFillAmount = experienceBar.fillAmount;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < LerpDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            playerHealthBar.fillAmount = Mathf.Lerp(startFillAmount, targetFillAmount, elapsedTime / LerpDuration);
+            yield return null;
+        }
+
+        playerHealthBar.fillAmount = targetFillAmount;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            AddExperience(5);
+        }
+    }
+
+    public void AddExperience(int amount)
+    {
+        totalExperience += amount;
+        CheckForLevelUp();
+        UpdateExperienceUI();
+    }
+
+    void CheckForLevelUp()
+    {
+        if (totalExperience >= nextLevelsExperience)
+        {
+            currentLevel++;
+            UpdateLevel();
+
+            // Play Item Choices
+
+        }
+    }
+
+    void UpdateLevel()
+    {
+        previousLevelsExperience = (int)experienceCurve.Evaluate(currentLevel);
+        nextLevelsExperience = (int)experienceCurve.Evaluate(currentLevel + 1);
+        UpdateExperienceUI();
+    }
+
+    void UpdateExperienceUI()
+    {
+        int start = totalExperience - previousLevelsExperience;
+        int end = nextLevelsExperience - previousLevelsExperience;
+
+        experienceText.text = "Level " + currentLevel.ToString() + ": " + start + " / " + end + " XP";
+        experienceBar.fillAmount = (float)start / (float)end;
+    }
 }
