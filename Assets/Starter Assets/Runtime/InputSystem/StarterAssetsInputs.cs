@@ -9,6 +9,8 @@ namespace StarterAssets
     {
         public static StarterAssetsInputs instance;
 
+        public bool inputs = true;
+
         [Header("Character Input Values")]
         public Vector2 move;
         public Vector2 look;
@@ -96,51 +98,52 @@ namespace StarterAssets
 #endif
         public void MoveInput(Vector2 newMoveDirection)
         {
-            if (!pause) move = newMoveDirection; else move = Vector2.zero;
+            if (inputs) move = newMoveDirection; else move = Vector2.zero;
         }
 
         public void LookInput(Vector2 newLookDirection)
         {
-            if (!pause) look = newLookDirection; else look = Vector2.zero;
+            if (inputs) look = newLookDirection; else look = Vector2.zero;
         }
 
         public void JumpInput(bool newJumpState)
         {
-            if (!pause) jump = newJumpState;
+            if (inputs) jump = newJumpState;
         }
 
         public void SprintInput(bool newSprintState)
         {
-            if (!pause) sprint = newSprintState;
+            if (inputs) sprint = newSprintState;
         }
 
         public void ShootInput(bool newShootState)
         {
-            if (!pause) shoot = newShootState;
+            if (inputs) shoot = newShootState;
         }
 
         public void ReloadInput(bool newReloadState)
         {
-            if (!pause) reload = newReloadState;
+            if (inputs) reload = newReloadState;
         }
 
         public void AimInput(bool newAimState)
         {
-            if (!pause) aim = newAimState;
+            if (inputs) aim = newAimState;
         }
 
         public void PrimaryInput(bool newPrimaryState)
         {
-            if (!pause) primary = newPrimaryState;
+            if (inputs) primary = newPrimaryState;
         }
 
         public void SecondaryInput(bool newSecondaryState)
         {
-            if (!pause) secondary = newSecondaryState;
+            if (inputs) secondary = newSecondaryState;
         }
 
-        public void PauseInput(bool newPauseState)
+        public void PauseInput(bool newPauseState) //this is going to raise bugs
         {
+            inputs = false;
             pause = newPauseState;
         }
 
@@ -151,17 +154,17 @@ namespace StarterAssets
 
         public void InteractInput(bool newInteractState)
         {
-            if (!pause) interact = newInteractState;
+            if (inputs) interact = newInteractState;
         }
 
         public void SkillInput(bool newSkillState)
         {
-            if (!pause) skill = newSkillState;
+            if (inputs) skill = newSkillState;
         }
 
         public void InventoryInput(bool newInventoryState)
         {
-            inventory = newInventoryState;
+            if (inputs) inventory = newInventoryState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

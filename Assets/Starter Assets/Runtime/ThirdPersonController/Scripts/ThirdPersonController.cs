@@ -161,7 +161,7 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
             // initialize jumps remaining
-            _jumpsRemaining = 2; // change this value to set the maximum number of jumps allowed
+            _jumpsRemaining = 1; // change this value to set the maximum number of jumps allowed
         }
 
         private void Update()

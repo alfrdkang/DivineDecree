@@ -5,7 +5,7 @@ using StarterAssets;
 
 public class SleepyFeather : ItemScript
 {
-    private void Awake()
+    private void Start()
     {
         ThirdPersonController.instance._jumpsRemaining += 1;
     }

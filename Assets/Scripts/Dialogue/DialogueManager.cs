@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Cinemachine;
+using StarterAssets;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class DialogueManager : MonoBehaviour
     /// <param name="dialogue"></param>
     public void StartDialogue(Dialogue dialogue)
     {
+        StarterAssetsInputs.instance.inputs = false;
         playerModel.SetActive(false);
         diagVirtualCamera.gameObject.SetActive(true);
         DiagUI.SetActive(true);
@@ -98,6 +100,8 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     void EndDialogue()
     {
+        StarterAssetsInputs.instance.inputs = true;
+
         sentences.Clear();
         clips.Clear();
         names.Clear();

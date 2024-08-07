@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using StarterAssets;
 using Random = UnityEngine.Random;
 
 public class ItemChoice : MonoBehaviour
@@ -15,6 +16,7 @@ public class ItemChoice : MonoBehaviour
 
     private void Start()
     {
+        StarterAssetsInputs.instance.inputs = false;
         DisplayItemChoices();
     }
 
@@ -44,5 +46,6 @@ public class ItemChoice : MonoBehaviour
         Debug.Log(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text);
 
         gameObject.SetActive(false);
+        StarterAssetsInputs.instance.inputs = true;
     }
 }
