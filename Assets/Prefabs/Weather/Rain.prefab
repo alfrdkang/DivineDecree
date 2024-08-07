@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8475878686106234446}
   - component: {fileID: 3936886296664565623}
   - component: {fileID: 498335788281591695}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4878,7 +4878,7 @@ GameObject:
   - component: {fileID: 3230004429926179809}
   - component: {fileID: 2728032340816980362}
   - component: {fileID: 7239123201676279926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallSplash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9778,7 +9778,7 @@ GameObject:
   - component: {fileID: 828812383753554312}
   - component: {fileID: 7991888937108575883}
   - component: {fileID: 3744631132960185043}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ripple
   m_TagString: Untagged
   m_Icon: {fileID: 0}

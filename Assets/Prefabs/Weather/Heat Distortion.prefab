@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2593125163194734276}
   - component: {fileID: 166070839736546413}
   - component: {fileID: 4952470670375990512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Heat Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
