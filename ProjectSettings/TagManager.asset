@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - NPC
   - GameManager
+  - ActiveWeapon
+  - Secondary
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - IsGround
   - IsEnemy
   - IsNPC
-  - 
+  - IsWeather
   - 
   - 
   - 
