@@ -12,14 +12,13 @@ GameObject:
   - component: {fileID: 2341215497619892839}
   - component: {fileID: 4435921536805795653}
   - component: {fileID: 5852518817397185609}
-  - component: {fileID: 74588616629541064}
   m_Layer: 5
   m_Name: ItemChoiceMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2563704489877219655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69,6 +68,8 @@ MonoBehaviour:
   ItemChoiceContent: {fileID: 2760207432346676406}
   ItemChoiceItem: {fileID: 3730920680474047102, guid: 4fc5c106e0bc74c6b944d4b48ea76132,
     type: 3}
+  itemChoiceUI: {fileID: 0}
+  HUD: {fileID: 0}
 --- !u!114 &5852518817397185609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,36 +100,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &74588616629541064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95902882733130524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Content: {fileID: 2760207432346676406}
-  m_Horizontal: 1
-  m_Vertical: 1
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 1995841509270010578}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 0}
-  m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
-  m_HorizontalScrollbarSpacing: -3
-  m_VerticalScrollbarSpacing: -3
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &924438683477357013
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject deathMenu; // Reference to the death menu UI
     [SerializeField] private GameObject winMenu; // Reference to the win menu UI
     [SerializeField] private GameObject HUD; // Reference to the in-game HUD UI
-    [SerializeField] private GameObject bgBlur; // Reference to the background blur effect
 
     public bool IsPaused = false; // Flag indicating if the game is paused
 
@@ -53,7 +52,6 @@ public class PauseMenu : MonoBehaviour
         deathMenu.SetActive(false); // Disable death menu UI
         winMenu.SetActive(false); // Disable win menu UI
         HUD.SetActive(true); // Enable in-game HUD UI
-        bgBlur.SetActive(false); // Disable background blur effect
         Time.timeScale = 1f; // Resume normal time scale
         IsPaused = false; // Game is no longer paused
         _inputs.pause = false; // Reset pause input flag
@@ -68,7 +66,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None; // Unlock cursor
         pauseMenu.SetActive(true); // Enable pause menu UI
         HUD.SetActive(false); // Disable in-game HUD UI
-        bgBlur.SetActive(true); // Enable background blur effect
         IsPaused = true; // Game is paused
         _inputs.pause = false; // Reset pause input flag
     }

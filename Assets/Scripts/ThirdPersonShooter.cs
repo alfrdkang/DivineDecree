@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class ThirdPersonShooter : MonoBehaviour
 {
+    public static ThirdPersonShooter instance = null;
+
     [SerializeField] private CinemachineVirtualCamera aimVirtualCamera;
     [SerializeField] private float normalSensitivity;
     [SerializeField] private float aimSensitivity;
@@ -28,9 +30,11 @@ public class ThirdPersonShooter : MonoBehaviour
     private ThirdPersonController thirdPersonController;
 
     private bool canCharged = true;
+    private bool canShoot = true;
     private bool canSkill = true;
-    private float chargedCD = 2f;
-    private float skillCD = 5f;
+    public float chargedCD = 2f;
+    public float skillCD = 5f;
+    public float shootCD = 1f;
 
     private void AssignAnimationIDs()
     {
@@ -40,6 +44,11 @@ public class ThirdPersonShooter : MonoBehaviour
 
     private void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         _hasAnimator = TryGetComponent(out _animator);
         AssignAnimationIDs();
 
@@ -102,8 +111,13 @@ public class ThirdPersonShooter : MonoBehaviour
                 }
             } else
             {
-                _animator.SetTrigger("Shoot");
-                StartCoroutine(ShootArrow(0.2f, 3, mouseWorldPosition));
+                if (canShoot)
+                {
+                    canShoot = false;
+                    _animator.SetTrigger("Shoot");
+                    StartCoroutine(ShootCooldown(shootCD));
+                    StartCoroutine(ShootArrow(0.2f, 3, mouseWorldPosition));
+                }
             }
             starterAssetsInputs.shoot = false;
         }
@@ -167,6 +181,18 @@ public class ThirdPersonShooter : MonoBehaviour
             yield return null;
         }
         canCharged = true;
+    }
+
+    private IEnumerator ShootCooldown(float cooldown)
+    {
+        float t = 0;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / cooldown;
+
+            yield return null;
+        }
+        canShoot = true;
     }
 }
 
