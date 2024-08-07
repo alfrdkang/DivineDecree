@@ -7,6 +7,7 @@ namespace StarterAssets
 {
     public class StarterAssetsInputs : MonoBehaviour
     {
+        public static StarterAssetsInputs instance;
 
         [Header("Character Input Values")]
         public Vector2 move;
@@ -22,6 +23,7 @@ namespace StarterAssets
         public bool interact;
         public bool aim;
         public bool skill;
+        public bool inventory;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -31,6 +33,11 @@ namespace StarterAssets
         public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM
+        private void Awake()
+        {
+            instance = this;
+        }
+
         public void OnMove(InputValue value)
         {
             MoveInput(value.Get<Vector2>());
@@ -80,6 +87,10 @@ namespace StarterAssets
         public void OnSkill(InputValue value)
         {
             SkillInput(value.isPressed);
+        }
+        public void OnInventory(InputValue value)
+        {
+            InventoryInput(value.isPressed);
         }
 
 #endif
@@ -146,6 +157,11 @@ namespace StarterAssets
         public void SkillInput(bool newSkillState)
         {
             if (!pause) skill = newSkillState;
+        }
+
+        public void InventoryInput(bool newInventoryState)
+        {
+            inventory = newInventoryState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
     /// <param name="dialogue"></param>
     public void StartDialogue(Dialogue dialogue)
     {
-        //playerModel.SetActive(false);
+        playerModel.SetActive(false);
         diagVirtualCamera.gameObject.SetActive(true);
         DiagUI.SetActive(true);
         diagActive = true;
@@ -107,7 +107,7 @@ public class DialogueManager : MonoBehaviour
         diagVirtualCamera.gameObject.SetActive(false);
         diagActive = false;
         DiagUI.SetActive(false);
-        //playerModel.SetActive(true);
+        playerModel.SetActive(true);
     }
 
     // Update is called once per frame

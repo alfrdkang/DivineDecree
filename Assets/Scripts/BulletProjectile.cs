@@ -27,7 +27,6 @@ public class BulletProjectile : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Debug.Log("Enemy Hit!");
             other.gameObject.GetComponent<EnemyAI>().TakeDamage(damage);
             Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
         } else
