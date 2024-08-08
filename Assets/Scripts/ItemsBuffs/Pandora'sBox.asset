@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f51487f07344f6a30c1e25d6fb01e, type: 3}
   m_Name: Pandora'sBox
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  itemDescription: 
-  icon: {fileID: 0}
+  itemName: "Pandora\u2019s Box"
+  itemDescription: "Gives player 3 items/buffs but HALVES player\u2019s health "
+  icon: {fileID: 21300000, guid: 13a889d5dc24649edb22c189069880a0, type: 3}
   itemObj: {fileID: 0}

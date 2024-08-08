@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f51487f07344f6a30c1e25d6fb01e, type: 3}
   m_Name: Whimsy'sBubbleShield
   m_EditorClassIdentifier: 
-  id: 5
   itemName: Whimsy's Bubble Shield
   itemDescription: Player gains a shield that blocks one hit (regenerates after 20s)
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3c3a1dc264d974b20892b5baaecae53a, type: 3}
   itemObj: {fileID: 0}

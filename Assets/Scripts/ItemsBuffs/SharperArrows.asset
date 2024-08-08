@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f51487f07344f6a30c1e25d6fb01e, type: 3}
   m_Name: SharperArrows
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  itemDescription: 
-  icon: {fileID: 0}
+  itemName: Sharper Arrow
+  itemDescription: Player does 20% more damage
+  icon: {fileID: 21300000, guid: aa77cce403f2c0142bed9c4031f86fa3, type: 3}
   itemObj: {fileID: 0}

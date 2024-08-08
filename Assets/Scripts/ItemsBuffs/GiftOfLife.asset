@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f51487f07344f6a30c1e25d6fb01e, type: 3}
   m_Name: GiftOfLife
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  itemDescription: 
-  icon: {fileID: 0}
+  itemName: Gift of Life
+  itemDescription: Player gains 20 max health
+  icon: {fileID: 21300000, guid: 44a903359937d4256baaa2b3bc06c366, type: 3}
   itemObj: {fileID: 0}

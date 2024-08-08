@@ -7979,6 +7979,7 @@ MonoBehaviour:
   - {fileID: 2392634898544229067, guid: 9f39ac5909a1947569cd63f6cc1bdf7e, type: 3}
   - {fileID: 3035227174303176398, guid: 5e19eef77fbf943e2b019bfa43a43dc8, type: 3}
   - {fileID: 3607406752273352423, guid: 141c94c19822e4e6897e436c117b4d09, type: 3}
+  - {fileID: 5174297041276248676, guid: 81782d3548699d6409ed5a170f20a269, type: 3}
   changeIntervalMinutes: 0.2
   forecastCount: 3
   forecastText: {fileID: 282087512}

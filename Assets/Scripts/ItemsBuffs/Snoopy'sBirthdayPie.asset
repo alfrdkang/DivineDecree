@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43f51487f07344f6a30c1e25d6fb01e, type: 3}
   m_Name: Snoopy'sBirthdayPie
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  itemDescription: 
-  icon: {fileID: 0}
+  itemName: Snoopy's Birthday Pie
+  itemDescription: Player regenerates 20% faster
+  icon: {fileID: 21300000, guid: ed6527d51a30d4b6c8733a597dc9804a, type: 3}
   itemObj: {fileID: 0}
