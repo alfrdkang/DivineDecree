@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc702b2ca57f9e488616939ace6d82d, type: 3}
+  m_Name: mapleDialogue
+  m_EditorClassIdentifier: 
+  sentences:
+  - Hey there, brave soul! Please help us get back our beloved artifact!
+  - "Don\u2019t worry, we will. Does the Shaolin have any weaknesses?"
+  - Not that I know of, except I know they love making stew out of us! How rude!
+  - "Stew, huh? Well, that\u2019s certainly a new one. What else can you tell us
+    about the Shaolin? Anything at all could help."
+  - "They\u2019re extremely disciplined and skilled in martial arts. They value honor
+    and respect, so direct confrontation might be tricky."
+  - "That\u2019s useful to know. Do you have any suggestions on how we can approach
+    them?"
+  - They do respect strength and bravery. If you challenge their leader honorably,
+    they might be willing to negotiate or at least listen to your plea.
+  - "Great, so we just have to show them we\u2019re not to be messed with. Easy enough,
+    right?"
+  - "Exactly. Here\u2019s an item that might help. It\u2019s a charm that symbolizes
+    our village\u2019s heritage and might appeal to their sense of honor."
+  - "Thank you, Maple. We\u2019ll make sure to use it wisely."
+  - "Yeah, thanks. And let\u2019s hope we don\u2019t end up in their stew pot."
+  - "Good luck! Remember, the artifact is crucial for our village\u2019s safety.
+    We\u2019re counting on you."
+  - "We\u2019ll do our best to bring it back. Stay safe, Maple."
+  - "Alright, let's get moving. We\u2019ve got an artifact to retrieve and some Shaolin
+    to impress."
+  - "Agreed. Let\u2019s head towards the Shaolin temple and see if we can negotiate
+    for the artifact."
+  clips:
+  - {fileID: 8300000, guid: 3a353132bb4194ba29d594f1bada2296, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 6a9b641f62a96458b87d62eeadc804e6, type: 3}
+  - {fileID: 8300000, guid: 6874f97afc2794772a08e0ac71c978df, type: 3}
+  - {fileID: 8300000, guid: afcbcfe2927fb4ca298f19ef35d25a8e, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: c2499a82171914b39bb6caf84afe703b, type: 3}
+  - {fileID: 8300000, guid: 0401974074277473793fba84a089c23a, type: 3}
+  - {fileID: 8300000, guid: 3a20920c3afb14015bfe8c36a3ab789b, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 5834bc983d5234d60b570b0367e3e67b, type: 3}
+  - {fileID: 8300000, guid: 0ade09e8dbdee4da7890baa3f704dada, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 1a82d77b3ea254126b9a48117ebe9e0d, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  names:
+  - Maple
+  - Player
+  - Maple
+  - Companion
+  - Maple
+  - Player
+  - Maple
+  - Companion
+  - Maple
+  - Player
+  - Companion
+  - Maple
+  - Player
+  - Companion
+  - Player

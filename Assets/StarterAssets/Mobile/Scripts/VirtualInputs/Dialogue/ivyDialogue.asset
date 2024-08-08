@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc702b2ca57f9e488616939ace6d82d, type: 3}
+  m_Name: ivyDialogue
+  m_EditorClassIdentifier: 
+  sentences:
+  - "Hey, do you know where the Shaolin\u2019s base is located?"
+  - "It\u2019s further down south, just follow the path here. But why would you want
+    to go there? Hopefully you\u2019re not thinking of fighting them head-on!"
+  - "\u2026"
+  - "You\u2019re CRAZY! Even if you survive, you\u2019ll get cooked into Mushroom
+    Stew! Have you seen what they did to Jake? It was not pretty\u2026"
+  - "Mushroom Stew? That\u2019s\u2026 unsettling. Can you tell us more about what
+    happened to Jake?"
+  - Jake was one of our best warriors. He thought he could take on the Shaolin by
+    himself. They overwhelmed him, and when we found him, he was barely recognizable.
+    They had cut him up, probably to send a message.
+  - "That\u2019s awful. We can\u2019t let that happen to anyone else. But we need
+    to get that artifact back. It\u2019s crucial for our village\u2019s safety."
+  - "I understand, but you need to be careful. The Shaolin are not just skilled fighters;
+    they\u2019re ruthless and cunning. If you\u2019re going to face them, you\u2019ll
+    need more than just bravery."
+  - "Do you have any advice or anything that might help us? We can\u2019t just walk
+    in there unprepared."
+  - "I wish I had something more to offer, but all I can give you is a warning. The
+    Shaolin are highly disciplined and honor-bound, but they don\u2019t show mercy
+    to those who cross them. You\u2019ll need to be smart and strategic."
+  - "Thank you, Ivy. We\u2019ll make sure to approach this with caution. We\u2019re
+    determined to get the artifact back and bring peace to our village."
+  - "I wish you the best of luck. Just remember, the Shaolin are not to be underestimated.
+    Stay vigilant and work together. You\u2019ll need each other to make it through."
+  - "We\u2019ll be careful. And we won\u2019t let Jake\u2019s sacrifice be in vain."
+  - "Agreed. Let\u2019s head south and find the Shaolin base. We have a mission to
+    complete."
+  clips:
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 28a54cef9962c45c792f440d5a24053d, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 4fe07a473ab7943e89a6e91ebd275314, type: 3}
+  - {fileID: 8300000, guid: 61b2db91dc11e4d19990406e71c09149, type: 3}
+  - {fileID: 8300000, guid: 65a61e40e0d72444783fc0c571a091bf, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: e3963526054f24bb8ac925d6b8f09704, type: 3}
+  - {fileID: 8300000, guid: e90764c3f159340ce93b689909983a8e, type: 3}
+  - {fileID: 8300000, guid: 88c9e85d129714f9093b534704328a10, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: f424f5ee9cac947e28593bca9b957a54, type: 3}
+  - {fileID: 8300000, guid: 779dec496e40c48fab3606787bc05a7d, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  names:
+  - Player
+  - Ivy
+  - Player
+  - Ivy
+  - Companion
+  - Ivy
+  - Player
+  - Ivy
+  - Companion
+  - Ivy
+  - Player
+  - Ivy
+  - Companion
+  - Player
