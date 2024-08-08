@@ -6083,7 +6083,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6929,7 +6929,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 8
+  m_text: 'Level 1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9fe018fe5f9f045c7811bf5459e2e4d6, type: 2}
   m_sharedMaterial: {fileID: 6447333859754382329, guid: 9fe018fe5f9f045c7811bf5459e2e4d6,
@@ -7336,7 +7338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52dc5f4e5ba58ef478396aa4f33de289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 10
+  playerHealth: 75
   playerHealthRegenerationPerSecond: 2
   LerpDuration: 0.5
   player: {fileID: 4416926083347132227}
@@ -7351,7 +7353,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -7371,7 +7373,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  currentLevel: 0
+  currentLevel: 1
   totalExperience: 0
   previousLevelsExperience: 0
   nextLevelsExperience: 0
@@ -8020,6 +8022,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diagVirtualCamera: {fileID: 1386308594}
   dialogue: {fileID: 11400000, guid: 971d586f2bc114381b103d8c3b42b754, type: 2}
+--- !u!1 &937760644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937760645}
+  m_Layer: 3
+  m_Name: VFXSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937760645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937760644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0000461, y: -0.00029, z: 0.00013}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1419431327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1005447642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 856377833504343453, guid: b7de24cb07d0bd948ab5a03cfa41f568,
@@ -11443,6 +11476,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405123832}
   m_CullTransparentMesh: 0
+--- !u!4 &1419431327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 856377833504343473, guid: b7de24cb07d0bd948ab5a03cfa41f568,
+    type: 3}
+  m_PrefabInstance: {fileID: 1790020246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1464096250
 GameObject:
   m_ObjectHideFlags: 0
@@ -12220,6 +12259,13 @@ MonoBehaviour:
     type: 3}
   chargedLoading: {fileID: 1754527824}
   skillLoading: {fileID: 4165448479360762705}
+  energyExplosion: {fileID: 1329845292236604, guid: 5666fe1d228acf2479486c2dd4909852,
+    type: 3}
+  glowPurple: {fileID: 5824670795371433373, guid: 320421fa9ba609e4b9fa231bd524ebaa,
+    type: 3}
+  skillCircle: {fileID: 3280519133390621005, guid: 9276018290900964a9b961bbaa803d40,
+    type: 3}
+  bow: {fileID: 937760644}
   chargedCD: 2
   skillCD: 5
   shootCD: 1
@@ -12698,7 +12744,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 856377833497127465, guid: b7de24cb07d0bd948ab5a03cfa41f568, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 856377833504343473, guid: b7de24cb07d0bd948ab5a03cfa41f568,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 937760645}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7de24cb07d0bd948ab5a03cfa41f568, type: 3}
 --- !u!4 &1790020247 stripped
@@ -18225,6 +18275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputs: 0
+  canMove: 1
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
   jump: 0

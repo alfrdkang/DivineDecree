@@ -20,21 +20,27 @@ public class ThirdPersonShooter : MonoBehaviour
     [SerializeField] private BulletProjectile bulletProjectile;
     [SerializeField] private Image chargedLoading;
     [SerializeField] private Image skillLoading;
+    [SerializeField] private GameObject energyExplosion;
+    [SerializeField] private GameObject glowPurple;
+    [SerializeField] private GameObject skillCircle;
+    [SerializeField] private GameObject bow;
 
     private bool _hasAnimator;
     private Animator _animator;
     private int _animIDSpeed;
     private int _animIDAiming;
 
-    private StarterAssetsInputs starterAssetsInputs;
     private ThirdPersonController thirdPersonController;
 
     private bool canCharged = true;
     private bool canShoot = true;
     private bool canSkill = true;
+    private bool playingChargeVFX = false;
+    private bool playingSkillVFX = false;
     public float chargedCD = 2f;
     public float skillCD = 5f;
     public float shootCD = 1f;
+    private GameObject energyVFXObj;
 
     private void AssignAnimationIDs()
     {
@@ -56,7 +62,6 @@ public class ThirdPersonShooter : MonoBehaviour
         skillLoading.fillAmount = 1;
 
         thirdPersonController = GetComponent<ThirdPersonController>();
-        starterAssetsInputs = GetComponent<StarterAssetsInputs>();
     }
 
     private void Update()
@@ -73,8 +78,20 @@ public class ThirdPersonShooter : MonoBehaviour
             mouseWorldPosition = raycastHit.point;
         }
 
-        if (starterAssetsInputs.aim)
+        if (StarterAssetsInputs.instance.aim)
         {
+            if (!canCharged)
+            {
+                StarterAssetsInputs.instance.aim = false;
+                return;
+            }
+
+            StarterAssetsInputs.instance.canMove = false;
+
+            if (!playingChargeVFX)
+            {
+                StartCoroutine(ChargingVFX(bow.transform, transform));
+            }
             _animator.SetBool(_animIDAiming, true);
 
             aimVirtualCamera.gameObject.SetActive(true);
@@ -89,6 +106,7 @@ public class ThirdPersonShooter : MonoBehaviour
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
         } else
         {
+            StarterAssetsInputs.instance.canMove = true;
             _animator.SetBool(_animIDAiming, false);
 
             aimVirtualCamera.gameObject.SetActive(false);
@@ -96,12 +114,13 @@ public class ThirdPersonShooter : MonoBehaviour
             thirdPersonController.SetRotateOnMove(true);
         }
 
-        if (starterAssetsInputs.shoot)
+        if (StarterAssetsInputs.instance.shoot)
         {
-            if (starterAssetsInputs.aim)
+            if (StarterAssetsInputs.instance.aim)
             {
                 if (canCharged)
                 {
+                    StarterAssetsInputs.instance.aim = false;
                     canCharged = false;
                     _animator.SetTrigger("ChargedShot");
 
@@ -119,11 +138,23 @@ public class ThirdPersonShooter : MonoBehaviour
                     StartCoroutine(ShootArrow(0.2f, 3, mouseWorldPosition));
                 }
             }
-            starterAssetsInputs.shoot = false;
+            StarterAssetsInputs.instance.shoot = false;
         }
 
-        if (starterAssetsInputs.skill)
+        if (StarterAssetsInputs.instance.skill)
         {
+            if (!canSkill)
+            {
+                StarterAssetsInputs.instance.skill = false;
+                return;
+            }
+
+            StarterAssetsInputs.instance.canMove = false;
+
+            if (!playingSkillVFX)
+            {
+                StartCoroutine(SkillVFX(bow.transform, transform));
+            }
             if (canSkill)
             {
                 canSkill = false;
@@ -133,8 +164,34 @@ public class ThirdPersonShooter : MonoBehaviour
                 StartCoroutine(SkillCooldown(skillLoading, skillCD));
                 StartCoroutine(Skill());
             }
-            starterAssetsInputs.skill = false;
+            StarterAssetsInputs.instance.skill = false;
         }
+    }
+
+    private IEnumerator ChargingVFX(Transform arrowLocation, Transform player)
+    {
+        playingChargeVFX = true;
+        yield return new WaitForSeconds(0.5f);
+        //GameObject energyVFXObj = GameObject.Instantiate(energyExplosion, player.position, player.rotation, player) as GameObject;
+        GameObject purpleVFXObj = GameObject.Instantiate(glowPurple, arrowLocation.position, arrowLocation.rotation, arrowLocation) as GameObject;
+        while (StarterAssetsInputs.instance.aim)
+        {
+            yield return null;
+        }
+        //Destroy(energyVFXObj);
+        Destroy(purpleVFXObj);
+        playingChargeVFX = false;
+    }
+
+    private IEnumerator SkillVFX(Transform arrowLocation, Transform player)
+    {
+        playingSkillVFX = true;
+        yield return new WaitForSeconds(0.8f);
+        GameObject skillCircleVFXObj = GameObject.Instantiate(skillCircle, player.position, player.rotation, player) as GameObject;
+        yield return new WaitForSeconds(3f);
+        Destroy(skillCircleVFXObj);
+        playingSkillVFX = false;
+        StarterAssetsInputs.instance.canMove = true;
     }
 
     private IEnumerator ShootArrow(float timeBtwnShots, float numOfShots, Vector3 mouseWorldPosition)

@@ -44,12 +44,14 @@ public class ItemChoice : MonoBehaviour
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemImg").GetComponent<Image>();
             var itemDescription = obj.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>();
+            var itemController = obj.GetComponent<ItemController>();
 
             obj.GetComponent<Button>().onClick.AddListener(Choice);
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             itemDescription.text = item.itemDescription;
+            itemController.item = item;
 
             ItemChoices.Remove(item);
         }
@@ -63,6 +65,8 @@ public class ItemChoice : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        InventoryManager.instance.Add(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<ItemController>().item);
 
         ItemChoice.instance.itemChoiceUI.SetActive(false);
         StarterAssetsInputs.instance.inputs = true;

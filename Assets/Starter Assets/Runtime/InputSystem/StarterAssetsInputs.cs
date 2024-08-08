@@ -10,6 +10,7 @@ namespace StarterAssets
         public static StarterAssetsInputs instance;
 
         public bool inputs = true;
+        public bool canMove = true;
 
         [Header("Character Input Values")]
         public Vector2 move;
@@ -98,7 +99,7 @@ namespace StarterAssets
 #endif
         public void MoveInput(Vector2 newMoveDirection)
         {
-            if (inputs) move = newMoveDirection; else move = Vector2.zero;
+            if (inputs && canMove) move = newMoveDirection; else move = Vector2.zero;
         }
 
         public void LookInput(Vector2 newLookDirection)
@@ -108,7 +109,7 @@ namespace StarterAssets
 
         public void JumpInput(bool newJumpState)
         {
-            if (inputs) jump = newJumpState;
+            if (inputs && canMove) jump = newJumpState;
         }
 
         public void SprintInput(bool newSprintState)
