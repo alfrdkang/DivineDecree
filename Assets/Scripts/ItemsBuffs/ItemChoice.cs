@@ -45,6 +45,8 @@ public class ItemChoice : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemImg").GetComponent<Image>();
             var itemDescription = obj.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>();
 
+            obj.GetComponent<Button>().onClick.AddListener(Choice);
+
             itemName.text = item.itemName;
             itemIcon.sprite = item.icon;
             itemDescription.text = item.itemDescription;
