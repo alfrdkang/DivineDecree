@@ -3,18 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CinemachineTarget
+  - Enemy
+  - NPC
+  - GameManager
+  - ActiveWeapon
+  - Secondary
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IsPlayer
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - IsGround
+  - IsEnemy
+  - IsNPC
+  - IsWeather
   - 
   - 
   - 

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc702b2ca57f9e488616939ace6d82d, type: 3}
+  m_Name: sageDialogue
+  m_EditorClassIdentifier: 
+  sentences:
+  - Thank you for saving our village!
+  - No problem. Just doing what I can.
+  - Allow me to heal your injuries.
+  - "You don\u2019t seem to be from around here. Where did you come from?"
+  - "He came crashing straight from the sky! He claims he\u2019s from a distant place
+    beyond our knowledge."
+  - Fascinating. Even with all my wisdom, I know nothing of your homeland.
+  - Why are the Shaolins attacking your village?
+  - "It\u2019s a long and tragic tale. Our village is the keeper of an ancient artifact,
+    one that the Shaolins covet for its supposed immense power."
+  - An artifact? What kind of power does it hold?
+  - Legend says the artifact contains the wisdom and strength of our ancestors. In
+    the wrong hands, it could bring about great destruction.
+  - Do you still have the artifact?
+  - Unfortunately, no. The Shaolins have already stolen it from us.
+  - "We can\u2019t let them keep it. Do you know where they\u2019ve taken it?"
+  - "According to our latest information, it\u2019s being held at their forest base.
+    Since they don\u2019t know who you are, you have the best chance to infiltrate
+    and retrieve it."
+  clips:
+  - {fileID: 8300000, guid: 74f19467c0a0e4e88aaaf53601eb93df, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 73c852f78b967453094e68d947aef1e7, type: 3}
+  - {fileID: 8300000, guid: 33858e68cdc154190aedf84e6f14e1a7, type: 3}
+  - {fileID: 8300000, guid: a67de2cbd82ff47f1a0bbe20287d216c, type: 3}
+  - {fileID: 8300000, guid: 3f4139dc1a374483ea39bba697f2cb8d, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: f706628e76e8d4543a1376728907f895, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: 4a28d70ede03749e58d6e4787960436d, type: 3}
+  - {fileID: 8300000, guid: 152971182881345eba8d676ef88a2fa4, type: 3}
+  - {fileID: 8300000, guid: f0707519cd35d49b4966f3c0036ad9fc, type: 3}
+  - {fileID: 8300000, guid: 091141d8b8bd54634804b0301d8e8240, type: 3}
+  - {fileID: 8300000, guid: a8ca42ef111b7444195966d7471aa7f2, type: 3}
+  names:
+  - Sage
+  - Player
+  - Sage
+  - Sage
+  - Companion
+  - Sage
+  - Player
+  - Sage
+  - Player
+  - Sage
+  - Companion
+  - Sage
+  - Companion
+  - Sage

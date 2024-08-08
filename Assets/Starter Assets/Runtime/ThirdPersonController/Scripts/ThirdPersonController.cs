@@ -3,9 +3,6 @@
 using UnityEngine.InputSystem;
 #endif
 
-/* Note: animations are called via the controller for both the character and capsule using animator null checks
- */
-
 namespace StarterAssets
 {
     [RequireComponent(typeof(CharacterController))]
@@ -14,6 +11,8 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public static ThirdPersonController instance = null;
+
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -47,6 +46,9 @@ namespace StarterAssets
 
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
+
+        [Tooltip("Number of Jumps Player has remaining")]
+        public int _jumpsRemaining;
 
         [Header("Player Grounded")]
         [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
@@ -133,12 +135,17 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+
+            if (instance == null)
+            {
+                instance = this;
+            }
         }
 
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -153,6 +160,9 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            // initialize jumps remaining
+            _jumpsRemaining = 1; // change this value to set the maximum number of jumps allowed
         }
 
         private void Update()
@@ -190,6 +200,12 @@ namespace StarterAssets
             if (_hasAnimator)
             {
                 _animator.SetBool(_animIDGrounded, Grounded);
+            }
+
+            // reset jumps when grounded
+            if (Grounded)
+            {
+                _jumpsRemaining = 1; // reset this value to the maximum number of jumps allowed
             }
         }
 
@@ -341,6 +357,22 @@ namespace StarterAssets
                     {
                         _animator.SetBool(_animIDFreeFall, true);
                     }
+                }
+
+                // Jump if player has jumps remaining
+                if (_input.jump && _jumpsRemaining > 0)
+                {
+                    // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDJump, true);
+                    }
+
+                    // decrease the number of jumps remaining
+                    _jumpsRemaining--;
                 }
 
                 // if we are not grounded, do not jump
