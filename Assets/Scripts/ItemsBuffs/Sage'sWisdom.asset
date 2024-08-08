@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Sage's Wisdom
   itemDescription: Increases FOV by 10%
   icon: {fileID: 21300000, guid: 3d3347e8a761e400fa0b853fedfaab24, type: 3}
-  itemObj: {fileID: 0}
+  itemObj: {fileID: 3412209298197161688, guid: 05ea1abc2d7cbb64cb65c0f531183edc, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Sleight of Hand
   itemDescription: Player reloads 20% faster
   icon: {fileID: 21300000, guid: 8e96e241775394aabae93d07c04d2a69, type: 3}
-  itemObj: {fileID: 0}
+  itemObj: {fileID: 3412209298197161688, guid: 8ab59976961255f4995e69b10bc46dea, type: 3}

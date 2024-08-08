@@ -23,6 +23,7 @@ public class ThirdPersonShooter : MonoBehaviour
     [SerializeField] private GameObject energyExplosion;
     [SerializeField] private GameObject glowPurple;
     [SerializeField] private GameObject skillCircle;
+    [SerializeField] private GameObject meteor;
     [SerializeField] private GameObject bow;
 
     private bool _hasAnimator;
@@ -37,10 +38,10 @@ public class ThirdPersonShooter : MonoBehaviour
     private bool canSkill = true;
     private bool playingChargeVFX = false;
     private bool playingSkillVFX = false;
+
     public float chargedCD = 2f;
     public float skillCD = 5f;
     public float shootCD = 1f;
-    private GameObject energyVFXObj;
 
     private void AssignAnimationIDs()
     {
@@ -126,7 +127,7 @@ public class ThirdPersonShooter : MonoBehaviour
 
                     bulletProjectile.damage = bulletProjectile.damage * 5;
                     StartCoroutine(ChargedCooldown(chargedLoading, chargedCD));
-                    StartCoroutine(ShootArrow(0f, 1, mouseWorldPosition));
+                    StartCoroutine(ShootArrow(0f, 1, mouseWorldPosition, true));
                 }
             } else
             {
@@ -135,7 +136,7 @@ public class ThirdPersonShooter : MonoBehaviour
                     canShoot = false;
                     _animator.SetTrigger("Shoot");
                     StartCoroutine(ShootCooldown(shootCD));
-                    StartCoroutine(ShootArrow(0.2f, 3, mouseWorldPosition));
+                    StartCoroutine(ShootArrow(0.2f, 3, mouseWorldPosition, false));
                 }
             }
             StarterAssetsInputs.instance.shoot = false;
@@ -188,22 +189,31 @@ public class ThirdPersonShooter : MonoBehaviour
         playingSkillVFX = true;
         yield return new WaitForSeconds(0.8f);
         GameObject skillCircleVFXObj = GameObject.Instantiate(skillCircle, player.position, player.rotation, player) as GameObject;
+        GameObject meteorVFXObj = GameObject.Instantiate(meteor, player.position, player.rotation, player) as GameObject;
         yield return new WaitForSeconds(3f);
         Destroy(skillCircleVFXObj);
+        Destroy(meteorVFXObj);
         playingSkillVFX = false;
         StarterAssetsInputs.instance.canMove = true;
     }
 
-    private IEnumerator ShootArrow(float timeBtwnShots, float numOfShots, Vector3 mouseWorldPosition)
+    private IEnumerator ShootArrow(float timeBtwnShots, float numOfShots, Vector3 mouseWorldPosition, bool isCharged)
     {
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < numOfShots; i++)
         {
+            bulletProjectile.damage = bulletProjectile.baseDamage; //causes all dmg to be 1
+
             yield return new WaitForSeconds(timeBtwnShots);
             Vector3 aimDirection = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-            Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+
+            Transform obj = Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+
+            if (isCharged)
+            {
+                Instantiate(energyExplosion, obj.position, obj.rotation, obj);
+            }
         }
-        bulletProjectile.damage = bulletProjectile.baseDamage;
     }
 
     private IEnumerator Skill()

@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Increased Quiver
   itemDescription: Player max ammo count increases
   icon: {fileID: 21300000, guid: 6e96e8c01018d428ca80953a5f7b8fdd, type: 3}
-  itemObj: {fileID: 0}
+  itemObj: {fileID: 3412209298197161688, guid: 2654c000fa4f76c4bbe8c8ee27574da0, type: 3}

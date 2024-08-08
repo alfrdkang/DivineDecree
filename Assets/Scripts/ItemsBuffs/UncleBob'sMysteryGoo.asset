@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Uncle Bob's Mystery Goo
   itemDescription: "Increases Player\u2019s damage by 50%, BUT..."
   icon: {fileID: 21300000, guid: b5a6de365b7814dfcb54d51f68efd5b7, type: 3}
-  itemObj: {fileID: 0}
+  itemObj: {fileID: 3412209298197161688, guid: 5dc86336cc5f2364b841bca0fe2bbb97, type: 3}

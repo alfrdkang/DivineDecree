@@ -129,8 +129,10 @@ public class EnemyAI : MonoBehaviour
 
     private void Attack()
     {
-        agent.SetDestination(transform.position); // Set destination to player's position
+        agent.SetDestination(transform.position);
         transform.LookAt(player); // Rotate to face player
+
+        //atk 
     }
 
     private void ResetAtk()

@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Sharper Arrow
   itemDescription: Player does 20% more damage
   icon: {fileID: 21300000, guid: aa77cce403f2c0142bed9c4031f86fa3, type: 3}
-  itemObj: {fileID: 0}
+  itemObj: {fileID: 3412209298197161688, guid: a5a3383a901d8974384d97aaeeb02813, type: 3}
