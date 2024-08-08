@@ -253,7 +253,6 @@ public class GameManager : MonoBehaviour
         int end = nextLevelsExperience - previousLevelsExperience;
 
         experienceText.text = "Level " + currentLevel.ToString() + ": " + start + " / " + end + " XP";
-        experienceBar.fillAmount = (float)start / (float)end;
 
         if (experienceBarLerpCoroutine != null)
         {
