@@ -8,8 +8,7 @@ public class BulletProjectile : MonoBehaviour
     [SerializeField] private Transform vfxHitRed;
 
     private Rigidbody rb;
-    public int baseDamage = 1;
-    public int damage;
+    public float damage;
 
     private void Awake()
     {
@@ -18,7 +17,6 @@ public class BulletProjectile : MonoBehaviour
 
     private void Start()
     {
-        damage = baseDamage;
         float speed = 30f;
         rb.velocity = transform.forward * speed;
     }
@@ -27,7 +25,7 @@ public class BulletProjectile : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyAI>().TakeDamage(damage);
+            other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
             Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
         } else
         {

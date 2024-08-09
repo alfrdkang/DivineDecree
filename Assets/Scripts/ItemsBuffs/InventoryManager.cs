@@ -44,7 +44,7 @@ public class InventoryManager : MonoBehaviour
     public void Add(Item item)
     {
         Items.Add(item);
-        //Instantiate(item.itemObj);
+        Instantiate(item.itemObj);
     }
 
     public void Remove(Item item)

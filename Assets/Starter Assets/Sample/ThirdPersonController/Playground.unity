@@ -7339,7 +7339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 75
+  playerMaxHealth: 75
   playerHealthRegenerationPerSecond: 2
+  playerBaseDamage: 11
+  playerSkillDamageMultiplier: 3
   LerpDuration: 0.5
   player: {fileID: 4416926083347132227}
   playerHealthBar: {fileID: 6744175248155554634}
@@ -11073,7 +11076,7 @@ PrefabInstance:
     - target: {fileID: 4435921536805795653, guid: ba8def8bdacc54337a71393787a5e936,
         type: 3}
       propertyPath: Items.Array.size
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4435921536805795653, guid: ba8def8bdacc54337a71393787a5e936,
         type: 3}
@@ -11109,19 +11112,19 @@ PrefabInstance:
         type: 3}
       propertyPath: Items.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 9fc61e29072f73247b08862ab9a1cef1,
+      objectReference: {fileID: 11400000, guid: f1f491783255eeb469a103e9033e3bb1,
         type: 2}
     - target: {fileID: 4435921536805795653, guid: ba8def8bdacc54337a71393787a5e936,
         type: 3}
       propertyPath: Items.Array.data[10]
       value: 
-      objectReference: {fileID: 11400000, guid: f1f491783255eeb469a103e9033e3bb1,
+      objectReference: {fileID: 11400000, guid: 0eaf1b7245c7f5a4f9bbbd0161c76c19,
         type: 2}
     - target: {fileID: 4435921536805795653, guid: ba8def8bdacc54337a71393787a5e936,
         type: 3}
       propertyPath: Items.Array.data[11]
       value: 
-      objectReference: {fileID: 11400000, guid: 0eaf1b7245c7f5a4f9bbbd0161c76c19,
+      objectReference: {fileID: 11400000, guid: 0efaefe5cb9e5b54d8560b2cf06d4a8a,
         type: 2}
     - target: {fileID: 4435921536805795653, guid: ba8def8bdacc54337a71393787a5e936,
         type: 3}
@@ -19713,7 +19716,7 @@ MonoBehaviour:
   IsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  maxHealth: 5
+  maxHealth: 50
   damage: 3
   healthbar: {fileID: 5099316988371740475}
   healthBarCanvas: {fileID: 2301934423655670532}
@@ -23829,6 +23832,7 @@ MonoBehaviour:
   Gravity: -10
   JumpTimeout: 0.3
   FallTimeout: 0.15
+  maxJumps: 1
   _jumpsRemaining: 0
   Grounded: 1
   GroundedOffset: -0.14

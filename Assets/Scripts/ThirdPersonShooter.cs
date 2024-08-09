@@ -125,7 +125,6 @@ public class ThirdPersonShooter : MonoBehaviour
                     canCharged = false;
                     _animator.SetTrigger("ChargedShot");
 
-                    bulletProjectile.damage = bulletProjectile.damage * 5;
                     StartCoroutine(ChargedCooldown(chargedLoading, chargedCD));
                     StartCoroutine(ShootArrow(0f, 1, mouseWorldPosition, true));
                 }
@@ -152,18 +151,17 @@ public class ThirdPersonShooter : MonoBehaviour
 
             StarterAssetsInputs.instance.canMove = false;
 
-            if (!playingSkillVFX)
-            {
-                StartCoroutine(SkillVFX(bow.transform, transform));
-            }
             if (canSkill)
             {
+                if (!playingSkillVFX)
+                {
+                    StartCoroutine(SkillVFX(bow.transform, transform));
+                }
                 canSkill = false;
                 _animator.SetTrigger("Skill");
 
-                bulletProjectile.damage = bulletProjectile.damage * 10;
                 StartCoroutine(SkillCooldown(skillLoading, skillCD));
-                StartCoroutine(Skill());
+                //StartCoroutine(Skill());
             }
             StarterAssetsInputs.instance.skill = false;
         }
@@ -188,8 +186,8 @@ public class ThirdPersonShooter : MonoBehaviour
     {
         playingSkillVFX = true;
         yield return new WaitForSeconds(0.8f);
-        GameObject skillCircleVFXObj = GameObject.Instantiate(skillCircle, player.position, player.rotation, player) as GameObject;
-        GameObject meteorVFXObj = GameObject.Instantiate(meteor, player.position, player.rotation, player) as GameObject;
+        GameObject skillCircleVFXObj = GameObject.Instantiate(skillCircle, player.position, player.rotation) as GameObject;
+        GameObject meteorVFXObj = GameObject.Instantiate(meteor, player.position, player.rotation) as GameObject;
         yield return new WaitForSeconds(3f);
         Destroy(skillCircleVFXObj);
         Destroy(meteorVFXObj);
@@ -202,7 +200,7 @@ public class ThirdPersonShooter : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < numOfShots; i++)
         {
-            bulletProjectile.damage = bulletProjectile.baseDamage; //causes all dmg to be 1
+            bulletProjectile.damage = GameManager.instance.playerBaseDamage;
 
             yield return new WaitForSeconds(timeBtwnShots);
             Vector3 aimDirection = (mouseWorldPosition - spawnBulletPosition.position).normalized;
@@ -212,17 +210,18 @@ public class ThirdPersonShooter : MonoBehaviour
             if (isCharged)
             {
                 Instantiate(energyExplosion, obj.position, obj.rotation, obj);
+                obj.GetComponent<BulletProjectile>().damage = GameManager.instance.playerBaseDamage * 5;
             }
         }
     }
 
-    private IEnumerator Skill()
-    {
-        yield return new WaitForSeconds(1f);
-        Vector3 aimDirection = (Vector3.down * Time.deltaTime).normalized;
-        Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
-        bulletProjectile.damage = bulletProjectile.baseDamage;
-    }
+    //private IEnumerator Skill()
+    //{
+    //    yield return new WaitForSeconds(1f);
+    //    Vector3 aimDirection = (Vector3.down * Time.deltaTime).normalized;
+    //    Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
+    //    bulletProjectile.damage = GameManager.instance.playerBaseDamage * 3;
+    //}
 
     private IEnumerator SkillCooldown(Image loadingBar, float cooldown)
     {

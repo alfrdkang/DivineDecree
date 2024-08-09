@@ -47,6 +47,9 @@ namespace StarterAssets
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
 
+        [Tooltip("Number of Jumps Player has")]
+        public int maxJumps = 1;
+
         [Tooltip("Number of Jumps Player has remaining")]
         public int _jumpsRemaining;
 
@@ -162,7 +165,7 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
 
             // initialize jumps remaining
-            _jumpsRemaining = 1; // change this value to set the maximum number of jumps allowed
+            _jumpsRemaining = maxJumps; // change this value to set the maximum number of jumps allowed
         }
 
         private void Update()
@@ -205,7 +208,7 @@ namespace StarterAssets
             // reset jumps when grounded
             if (Grounded)
             {
-                _jumpsRemaining = 1; // reset this value to the maximum number of jumps allowed
+                _jumpsRemaining = maxJumps; // reset this value to the maximum number of jumps allowed
             }
         }
 

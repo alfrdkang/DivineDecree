@@ -7,6 +7,6 @@ public class SleepyFeather : ItemScript
 {
     private void Start()
     {
-        ThirdPersonController.instance._jumpsRemaining += 1;
+        ThirdPersonController.instance.maxJumps += 1;
     }
 }

@@ -28,9 +28,13 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// The player's maximum health.
     /// </summary>
-    private float playerMaxHealth = 75f;
+    public float playerMaxHealth = 75f;
 
     public int playerHealthRegenerationPerSecond = 2;
+
+    public float playerBaseDamage = 11;
+
+    public int playerSkillDamageMultiplier = 3;
 
     private bool canRegen = true;
 
