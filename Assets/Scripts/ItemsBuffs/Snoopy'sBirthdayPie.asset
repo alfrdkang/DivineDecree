@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Snoopy'sBirthdayPie
   m_EditorClassIdentifier: 
   itemName: Snoopy's Birthday Pie
-  itemDescription: Player regenerates 20% faster
+  itemDescription: Player regenerates 50% faster
   icon: {fileID: 21300000, guid: ed6527d51a30d4b6c8733a597dc9804a, type: 3}
   itemObj: {fileID: 3412209298197161688, guid: 7a6820d453410b94a843801c7dd595d3, type: 3}
