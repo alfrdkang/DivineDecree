@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cbe6fcfea3c116b4899e6ab7e4dd46f9,
         type: 3}
       propertyPath: m_Name
-      value: shelf
+      value: SV_shelf
       objectReference: {fileID: 0}
     - target: {fileID: 9052607200702061139, guid: cbe6fcfea3c116b4899e6ab7e4dd46f9,
         type: 3}
@@ -79,7 +79,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9ecf923af77c00e41a3aaf43478fd99d, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -2053366705322905981, guid: cbe6fcfea3c116b4899e6ab7e4dd46f9, type: 3}
+    - {fileID: -5900937498473367167, guid: cbe6fcfea3c116b4899e6ab7e4dd46f9, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbe6fcfea3c116b4899e6ab7e4dd46f9, type: 3}
