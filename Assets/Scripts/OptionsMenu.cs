@@ -10,12 +10,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// Controls the options menu functionality, including volume, quality settings, fullscreen mode, and resolution.
 /// </summary>
 public class OptionsMenu : MonoBehaviour
 {
+    public Toggle qualityLowToggle; // The audio mixer to control volume
+    public Toggle qualityMediumToggle; // The audio mixer to control volume
+    public Toggle qualityHighToggle; // The audio mixer to control volume
+
     public AudioMixer audioMixer; // The audio mixer to control volume
 
     public TMP_Dropdown resolutionDropdown; // Dropdown UI for resolution selection
@@ -57,13 +62,34 @@ public class OptionsMenu : MonoBehaviour
         audioMixer.SetFloat("volume", volume); // Set the volume level in the audio mixer
     }
 
-    /// <summary>
-    /// Sets the quality level of the game.
-    /// </summary>
-    /// <param name="qualityIndex">The index of the quality level to set.</param>
-    public void SetQuality(int qualityIndex)
+    public void LowQuality()
     {
-        QualitySettings.SetQualityLevel(qualityIndex); // Set the quality level
+        if (qualityLowToggle.isOn)
+        {
+            QualitySettings.SetQualityLevel(0);
+            qualityMediumToggle.isOn = false;
+            qualityHighToggle.isOn = false;
+        }
+    }
+
+    public void MediumQuality()
+    {
+        if (qualityMediumToggle.isOn)
+        {
+            QualitySettings.SetQualityLevel(1);
+            qualityLowToggle.isOn = false;
+            qualityHighToggle.isOn = false;
+        }
+    }
+
+    public void HighQuality()
+    {
+        if (qualityHighToggle.isOn)
+        {
+            QualitySettings.SetQualityLevel(2);
+            qualityMediumToggle.isOn = false;
+            qualityLowToggle.isOn = false;
+        }
     }
 
     /// <summary>
@@ -83,5 +109,10 @@ public class OptionsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex]; // Get selected resolution
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen); // Set screen resolution
+    }
+
+    public void OpenInstagramLink()
+    {
+        Application.OpenURL("https://www.instagram.com/sleepystudiosgame?igsh=MTcyZzB3dm5rd3FzZQ%3D%3D&utm_source=qr");
     }
 }

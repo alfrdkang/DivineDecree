@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private StarterAssetsInputs _inputs; // Reference to player input controls
     [SerializeField] private GameObject pauseMenu; // Reference to the pause menu UI
     [SerializeField] private GameObject deathMenu; // Reference to the death menu UI
-    [SerializeField] private GameObject winMenu; // Reference to the win menu UI
+    [SerializeField] private GameObject optionMenu; // Reference to the option menu UI
     [SerializeField] private GameObject HUD; // Reference to the in-game HUD UI
 
     public bool IsPaused = false; // Flag indicating if the game is paused
@@ -50,7 +50,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor
         pauseMenu.SetActive(false); // Disable pause menu UI
         deathMenu.SetActive(false); // Disable death menu UI
-        winMenu.SetActive(false); // Disable win menu UI
         HUD.SetActive(true); // Enable in-game HUD UI
         Time.timeScale = 1f; // Resume normal time scale
         IsPaused = false; // Game is no longer paused

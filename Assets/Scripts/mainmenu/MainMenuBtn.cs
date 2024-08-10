@@ -17,29 +17,15 @@ using UnityEditor;
 public class MainMenuBtn : MonoBehaviour
 {
     /// <summary>
-    /// The text component of the button.
-    /// </summary>
-    public TMP_Text text;
-
-    /// <summary>
     /// The description GameObject that appears on hover.
     /// </summary>
-    private GameObject description;
-
-    /// <summary>
-    /// Initializes the description GameObject.
-    /// </summary>
-    private void Awake()
-    {
-        description = gameObject.transform.GetChild(1).gameObject;
-    }
+    public GameObject description;
 
     /// <summary>
     /// Changes the text style to underline and shows the description on hover enter.
     /// </summary>
     public void HoverEnter()
     {
-        text.fontStyle = FontStyles.Underline;
         description.SetActive(true);
     }
 
@@ -48,7 +34,6 @@ public class MainMenuBtn : MonoBehaviour
     /// </summary>
     public void HoverExit()
     {
-        text.fontStyle = FontStyles.Normal;
         description.SetActive(false);
     }
 
