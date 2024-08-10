@@ -11,7 +11,7 @@ using StarterAssets;
 
 public class Interactable : MonoBehaviour
 {
-    public virtual void Interact(GameManager gameManager, TextMeshProUGUI interactText, StarterAssetsInputs input)
+    public virtual void Interact(GameManager gameManager, TextMeshProUGUI interactText)
     {
         if (!FindObjectOfType<DialogueManager>().diagActive)
         {

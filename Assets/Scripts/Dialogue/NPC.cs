@@ -17,20 +17,22 @@ public class NPC : Interactable
     public CinemachineVirtualCamera diagVirtualCamera;
     public Dialogue dialogue;
 
-    /// <param name="gameManager">The GameManager instance managing the game.</param>
-    /// <param name="interactText">The UI text to display interaction prompts.</param>
-    /// <param name="_input">The input handler for player controls.</param>
-    public override void Interact(GameManager gameManager, TextMeshProUGUI interactText, StarterAssetsInputs _input)
+    private void Awake()
     {
-        base.Interact(gameManager, interactText, _input);
+        gameObject.GetComponent<Outline>().enabled = false;
+    }
+
+    public override void Interact(GameManager gameManager, TextMeshProUGUI interactText)
+    {
+        base.Interact(gameManager, interactText);
         interactText.text = "[E] Talk to " + gameObject.name;
 
         // Check if interact key is pressed
-        if (_input.interact)
+        if (StarterAssetsInputs.instance.interact)
         {
-            diagVirtualCamera.Follow = transform;
+            diagVirtualCamera.Follow = transform.Find("DiagCameraAim").transform;
             TriggerDialogue(dialogue);
-            _input.interact = false; // Reset interact input
+            StarterAssetsInputs.instance.interact = false; // Reset interact input
         }
     }
 }

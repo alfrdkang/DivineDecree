@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public int playerSkillDamageMultiplier = 3;
 
-    private bool canRegen = true;
+    public int regenTimeout = 0;
 
     public float LerpDuration = 0.5f;
 
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject bgBlur;
 
+    private Animator animator;
     [SerializeField] AnimationCurve experienceCurve;
 
     public int currentLevel;
@@ -82,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        animator = GetComponent<Animator>();
 
         UpdateHealthUI();
         UpdateLevel();
@@ -123,8 +126,7 @@ public class GameManager : MonoBehaviour
             Death();
         }
 
-        canRegen = false;
-        StartCoroutine(RegenTimeout());
+        regenTimeout = 3; // change this for regen timeout timer in seconds
     }
 
     /// <summary>
@@ -165,19 +167,20 @@ public class GameManager : MonoBehaviour
         UpdateHealthUI();
     }
 
-    private IEnumerator RegenTimeout()
-    {
-        yield return new WaitForSeconds(3f);
-        canRegen = true;
-        StartCoroutine(HealthRegenerationPerSecond(playerHealthRegenerationPerSecond));
-    }
-
     private IEnumerator HealthRegenerationPerSecond(int regeneration)
     {
-        while (canRegen)
+        while (true)
         {
-            yield return new WaitForSeconds(1f);
-            PlayerHeal(regeneration);
+            if (regenTimeout == 0)
+            {
+                yield return new WaitForSeconds(1f);
+                PlayerHeal(regeneration);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1f);
+                regenTimeout -= 1;
+            }
         }
     }
 

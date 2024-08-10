@@ -26,11 +26,11 @@ public class Interactor : MonoBehaviour
     private StarterAssetsInputs input;
     private GameManager gameManager;
 
+    private bool interactableHit;
+
     private void Awake()
     {
         interactText = GameObject.Find("interactText").GetComponent<TextMeshProUGUI>();
-        input = GameObject.Find("PlayerArmature").GetComponent<StarterAssetsInputs>();
-        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         interactText.enabled = false;
     }
 
@@ -41,16 +41,31 @@ public class Interactor : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.TryGetComponent(out Interactable interactObj))
             {
-                interactObj.Interact(gameManager, interactText, input);
+                interactableHit = true;
+                Outline obj = hitInfo.collider.gameObject.GetComponent<Outline>();
+                obj.enabled = true;
+
+                StartCoroutine(outlineManager(obj));
+                interactObj.Interact(gameManager, interactText);
             }
             else
             {
+                interactableHit = false;
                 interactText.enabled = false;
+                StarterAssetsInputs.instance.interact = false;
             }
         }
         else
         {
             interactText.enabled = false;
         }
+    }
+
+    private IEnumerator outlineManager(Outline obj) { 
+        while (interactableHit) 
+        {
+            yield return null;
+        }
+        obj.enabled = false;
     }
 }

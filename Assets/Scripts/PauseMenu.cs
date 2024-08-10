@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager; // Reference to the GameManager
     [SerializeField] private StarterAssetsInputs _inputs; // Reference to player input controls
+    [SerializeField] private GameObject bgBlur; 
     [SerializeField] private GameObject pauseMenu; // Reference to the pause menu UI
     [SerializeField] private GameObject deathMenu; // Reference to the death menu UI
     [SerializeField] private GameObject optionMenu; // Reference to the option menu UI
@@ -48,6 +49,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor
+        bgBlur.SetActive(false);
+        optionMenu.SetActive(false);
         pauseMenu.SetActive(false); // Disable pause menu UI
         deathMenu.SetActive(false); // Disable death menu UI
         HUD.SetActive(true); // Enable in-game HUD UI
@@ -64,6 +67,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; // Stop time
         Cursor.lockState = CursorLockMode.None; // Unlock cursor
         pauseMenu.SetActive(true); // Enable pause menu UI
+        bgBlur.SetActive(true);
         HUD.SetActive(false); // Disable in-game HUD UI
         IsPaused = true; // Game is paused
         _inputs.pause = false; // Reset pause input flag

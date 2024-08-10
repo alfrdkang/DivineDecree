@@ -131,8 +131,6 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player); // Rotate to face player
-
-        //atk 
     }
 
     private void ResetAtk()
@@ -146,7 +144,7 @@ public class EnemyAI : MonoBehaviour
     /// <param name="damage">Amount of damage to inflict</param>
     public void TakeDamage(int damage)
     {
-        animator.Play("GetHit"); // Play hit animation
+        animator.SetTrigger("damage");
         health -= damage; // Reduce health
         UpdateHealthBar(health, maxHealth); // Update health bar UI
 
@@ -157,8 +155,8 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(transform.position); // Stop moving
             Destroy(GetComponent<CapsuleCollider>()); // Disable collider
-            animator.Play("Die"); // Play death animation
-            Invoke(nameof(DestroyEnemy), 1f); // Destroy enemy after delay
+            animator.SetTrigger("death");
+            Invoke(nameof(DestroyEnemy), 2f); // Destroy enemy after delay
         }
     }
 
@@ -168,7 +166,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (!attacked) 
             {
-                animator.Play("Attack"); // Play attack animation
+                animator.SetTrigger("attack");
                 gameManager.PlayerDamage(damage); // Damage player
 
                 attacked = true; // Set attacked flag
@@ -183,7 +181,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (!attacked)
             {
-                animator.Play("Attack"); // Play attack animation
+                animator.SetTrigger("attack");
                 gameManager.PlayerDamage(damage); // Damage player
 
                 attacked = true; // Set attacked flag
