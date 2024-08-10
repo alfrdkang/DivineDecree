@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 2b289c521fe48cf4682b27a4b020f4e1,
+  m_LightingDataAsset: {fileID: 112000000, guid: e96ca95499230684e986dfe474f286d5,
     type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
@@ -7717,6 +7717,7 @@ MonoBehaviour:
   playerHealthRegenerationPerSecond: 2
   playerBaseDamage: 11
   playerSkillDamageMultiplier: 3
+  regenTimeout: 0
   LerpDuration: 0.5
   player: {fileID: 59383230}
   playerHealthBar: {fileID: 2079558001}
@@ -13765,7 +13766,7 @@ PrefabInstance:
     - target: {fileID: 7726403317934696455, guid: 0810c1a6ab36241fd9962848a86124cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.39
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7726403317934696455, guid: 0810c1a6ab36241fd9962848a86124cc,
         type: 3}

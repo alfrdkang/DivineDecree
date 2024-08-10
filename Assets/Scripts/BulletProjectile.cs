@@ -23,14 +23,23 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (!(other.tag == "TriggerArea"))
         {
-            other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
-            Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
-        } else
-        {
-            Instantiate(vfxHitRed, transform.position, Quaternion.identity);
+            if (other.tag == "Enemy")
+            {
+                other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
+                Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
+            }
+            else if (other.tag == "Boss")
+            {
+                other.gameObject.GetComponent<TreeBoss>().TakeDamage((int)damage);
+                Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(vfxHitRed, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

@@ -22,8 +22,9 @@ MonoBehaviour:
   - "Mushroom Stew? That\u2019s\u2026 unsettling. Can you tell us more about what
     happened to Jake?"
   - Jake was one of our best warriors. He thought he could take on the Shaolin by
-    himself. They overwhelmed him, and when we found him, he was barely recognizable.
-    They had cut him up, probably to send a message.
+    himself.
+  - They overwhelmed him, and when we found him, he was barely recognizable. They
+    had cut him up, probably to send a message.
   - "That\u2019s awful. We can\u2019t let that happen to anyone else. But we need
     to get that artifact back. It\u2019s crucial for our village\u2019s safety."
   - "I understand, but you need to be careful. The Shaolin are not just skilled fighters;
@@ -43,17 +44,18 @@ MonoBehaviour:
     complete."
   clips:
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: 28a54cef9962c45c792f440d5a24053d, type: 3}
+  - {fileID: 8300000, guid: 997808d2e55bd40a8943cf92a68d75b7, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: 4fe07a473ab7943e89a6e91ebd275314, type: 3}
+  - {fileID: 8300000, guid: 23d6e7fac35354afa9e3bc696e28fcde, type: 3}
   - {fileID: 8300000, guid: 61b2db91dc11e4d19990406e71c09149, type: 3}
-  - {fileID: 8300000, guid: 65a61e40e0d72444783fc0c571a091bf, type: 3}
+  - {fileID: 8300000, guid: c87bac17bc1e74942b343d83c923443c, type: 3}
+  - {fileID: 8300000, guid: 7de243abe06d447da81d13c80c75069f, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: e3963526054f24bb8ac925d6b8f09704, type: 3}
+  - {fileID: 8300000, guid: 90a6bb2ee71b14ee383e32d2a96411d0, type: 3}
   - {fileID: 8300000, guid: e90764c3f159340ce93b689909983a8e, type: 3}
-  - {fileID: 8300000, guid: 88c9e85d129714f9093b534704328a10, type: 3}
+  - {fileID: 8300000, guid: c3c3615cc14954197b9849392857bf23, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: f424f5ee9cac947e28593bca9b957a54, type: 3}
+  - {fileID: 8300000, guid: 395be767df3544031a2d8dfbc9750b4a, type: 3}
   - {fileID: 8300000, guid: 779dec496e40c48fab3606787bc05a7d, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
   names:
@@ -62,6 +64,7 @@ MonoBehaviour:
   - Player
   - Ivy
   - Companion
+  - Ivy
   - Ivy
   - Player
   - Ivy

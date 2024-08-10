@@ -19,28 +19,30 @@ MonoBehaviour:
   - "It\u2019s been a rough time. Our leader, Dashi, is very ill. We believe the
     artifact that we recently acquired from the mushroom village can heal him."
   - An artifact? What kind of artifact is it? Is it shiny?
-  - "It\u2019s said to hold great power. Our hope is that it can cure Dashi of his
-    disease."
+  - "Isn\u2019t it really powerful? Can\u2019t we use it to cure Master Dashi of
+    his disease."
   - That sound serious. How is Dashi doing now?
   - "He\u2019s stable for now, but we need to find a way to use the artifact properly.
-    The knowledge on how to use it was lost a long time ago. Dashi and his bodyguard
-    have gone to the Ice Land to seek the Woolly Mammoth, hoping it might have the
-    knowledge we need."
+    The knowledge on how to use it was lost a long time ago. "
+  - Dashi and his bodyguard have gone to the Ice Land to seek the Woolly Mammoth,
+    hoping it might have the knowledge we need.
   - That sounds challenging. We hope Dashi gets better soon. Is there anything we
     can do to help? Or are we just supposed to stand here?
-  - Just keep your eyes and ears open. If you hear anything about how to use the
-    artifact, let us know. Maybe Ci can help you. She knows about the Ice Land and
-    the Woolly Mammoth.
+  - If you hear anything about how to use the artifact, just tell me.
+  - Go and ask Sister Ci to help you. She knows about the Ice Land and the Woolly
+    Mammoth more than me.
   - We will. Thanks for the information.
   clips:
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: 2fc697c571b8e49089dcfc8f68024a31, type: 3}
+  - {fileID: 8300000, guid: c33200e0c6d7b4fbd89c7ffee7c3c815, type: 3}
   - {fileID: 8300000, guid: 639e4db582cbc4a7ab4f74d05a91d7f1, type: 3}
-  - {fileID: 8300000, guid: 53a9c868a092d4d53a6ebb6e02efe968, type: 3}
+  - {fileID: 8300000, guid: d60159a198be84a83b33b232c46cf266, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: 6bc55a74348954a0ca0965d144258f99, type: 3}
+  - {fileID: 8300000, guid: ea0f29c47e31d482e8a73d8283283e90, type: 3}
+  - {fileID: 8300000, guid: 79d310b560b4f4b8ca0a6843c895a586, type: 3}
   - {fileID: 8300000, guid: b0489a483b4984f37bf80318ff53fd21, type: 3}
-  - {fileID: 8300000, guid: 9cc266eda057a442d9764fdb76548890, type: 3}
+  - {fileID: 8300000, guid: b4b1f9d7eff0549df877cff3337ec076, type: 3}
+  - {fileID: 8300000, guid: 30a5f2345c28040ce8dc13096b4a2508, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
   names:
   - Player
@@ -49,6 +51,8 @@ MonoBehaviour:
   - Xiong
   - Player
   - XIaomiao
+  - Xiaomiao
   - Companion
+  - Xiong
   - Xiong
   - Player

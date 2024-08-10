@@ -16,18 +16,26 @@ MonoBehaviour:
   - "We\u2019ve got a lot to think about. Helping the DSS could mean assisting Dashi
     in his quest, but the village also needs the artifact to protect themselves."
   - "I\u2019m conflicted too. Not that you\u2019d notice. We should consider a faster
-    way to get to the tundra. We can defeat the Tree Boss at the rune and use its
-    teleporter to get there quickly. Seeking out the Woolly Mammoth might give us
-    the clarity we need. It could provide us with the truth about the artifact and
-    help us decide where our help is most needed."
+    way to get to the tundra. "
+  - 'We can defeat the Tree Boss at the rune and use its teleporter to get there
+    quickly. Seeking out the Woolly Mammoth might give us the clarity we need. '
+  - It could provide us with the truth about the artifact and help us decide where
+    our help is most needed.
   - "That makes sense. Let\u2019s head back to the rune, defeat the Tree Boss, and
-    use the teleporter. Getting to the Ice Land quickly will allow us to seek out
-    the Woolly Mammoth and understand the full picture."
+    use the teleporter."
+  - Getting to the Ice Land quickly will allow us to seek out the Woolly Mammoth
+    and understand the full picture.
   clips:
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: e2f4e4cf7784643f2b7c136872970d2c, type: 3}
+  - {fileID: 8300000, guid: ce7d9f2b9e4dc4b179517681e38d71ae, type: 3}
+  - {fileID: 8300000, guid: de4c000ca9f7a43948a0343fe3a2ec82, type: 3}
+  - {fileID: 8300000, guid: 56d996defa71b4f22885ca013e68a1c4, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
   names:
   - Player
   - Companion
+  - Companion
+  - Companion
+  - Player
   - Player

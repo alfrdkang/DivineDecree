@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc702b2ca57f9e488616939ace6d82d, type: 3}
+  m_Name: mammothDialogue
+  m_EditorClassIdentifier: 
+  sentences:
+  - "So, you\u2019ve journeyed far to stand before me."
+  - "You\u2019ve walked a path not meant for you, shaping a world that is not your
+    own. Eldoria is not where you belong."
+  - ...
+  - "Yet, fate has taken a turn. Dashi now possesses an artifact of immense power\u2014one
+    that could unravel the very fabric of Eldoria."
+  - Though it pains me to admit, the people of this realm may need your strength.
+  - But as you are a foreigner to these lands, I offer you a choice.
+  - "Stay, and lend your hand to preserve Eldoria\u2026"
+  - Or return to the world you know.
+  - Should you choose to depart, I hold the power to send you back.
+  - The decision lies with you.
+  clips:
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  - {fileID: 8300000, guid: bf9377740b5caf0449c33866374ca066, type: 3}
+  names:
+  - Mammoth
+  - Mammoth
+  - Player
+  - Mammoth
+  - Mammoth
+  - Mammoth
+  - Mammoth
+  - Mammoth
+  - Mammoth
+  - Mammoth

@@ -13,30 +13,39 @@ MonoBehaviour:
   m_Name: ciDialogue
   m_EditorClassIdentifier: 
   sentences:
-  - "I overheard your conversation. The Ice Cave in the tundra is where Dashi and
-    his bodyguard went. We have a hideout there where you can find other DSS members
-    who might provide more information about the Woolly Mammoth. It's a dangerous
-    journey, but if you\u2019re determined, I can provide you with more details."
+  - 'I overheard your conversation. The Ice Cave in the tundra is where Dashi and
+    his bodyguard went. '
+  - 'We have a hideout there where you can find other DSS members who might provide
+    more information about the Woolly Mammoth. '
+  - "It's a dangerous journey, but if you\u2019re determined, I can provide you with
+    more details."
   - That would be very helpful. Thank you, Ci.
-  - "You're welcome. Be careful on your journey. The tundra is treacherous, and not
-    everyone is friendly. Look for a small cave entrance hidden by large icicles;
-    that\u2019s where the hideout is."
+  - 'You''re welcome. Be careful on your journey. The tundra is treacherous, and
+    not everyone is friendly. '
+  - "Look for a small cave entrance hidden by large icicles; that\u2019s where the
+    hideout is."
   - "We\u2019ll keep that in mind. Do you have any advice for dealing with the Woolly
     Mammoth if we encounter it? Not that I need it, but you might."
   - The Woolly Mammoth is ancient and wise, but also wary of outsiders. Approach
     with respect and caution. Show that you mean no harm, and it might help you.
   - Understood. We appreciate the guidance, Ci. We should get going.
   clips:
-  - {fileID: 8300000, guid: 10b1834118a634c8b8c5740435c7f267, type: 3}
+  - {fileID: 8300000, guid: de0cdc533ba0747d7a00b8d82ad4a5b9, type: 3}
+  - {fileID: 8300000, guid: 3cb7dbc49d2e14e5a99871779772c288, type: 3}
+  - {fileID: 8300000, guid: 0002fae428aec4bb0b9029a2d0dd2cd5, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
-  - {fileID: 8300000, guid: 8f3363704170a4ff9a8626fbe2947724, type: 3}
+  - {fileID: 8300000, guid: 3d00e76f1e5b848958dd544bfdfd033d, type: 3}
+  - {fileID: 8300000, guid: 486f53332dbd540f28537e5fb6831476, type: 3}
   - {fileID: 8300000, guid: c78f748536b5241d69dc397017503136, type: 3}
-  - {fileID: 8300000, guid: 05b3e7d48cce347a39d9bdb8f1dc7a64, type: 3}
+  - {fileID: 8300000, guid: 3de7dd801d17542438cb1e594f443b39, type: 3}
   - {fileID: 8300000, guid: 8ff3d9d047b754a658d267a1fc6cca7e, type: 3}
   names:
   - Ci
+  - Ci
+  - Ci
   - Player
+  - 'Ci '
   - Ci
   - Companion
-  - 'Ci '
+  - Ci
   - Player
