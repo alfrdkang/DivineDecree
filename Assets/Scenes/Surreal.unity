@@ -7496,6 +7496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a374fea48bd741eda9a14f5e15f868d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursedItems: 1
   Items:
   - {fileID: 11400000, guid: 91b4e41f9ef0d46678d8c78298f7777d, type: 2}
   - {fileID: 11400000, guid: 419034ef06068458a897a47c5590b1b6, type: 2}
@@ -7513,6 +7514,7 @@ MonoBehaviour:
   ItemChoiceItem: {fileID: 3730920680474047102, guid: 4fc5c106e0bc74c6b944d4b48ea76132,
     type: 3}
   itemChoiceUI: {fileID: 54984279}
+  ChoiceUIActive: 0
   HUD: {fileID: 765263968}
 --- !u!222 &135446877
 CanvasRenderer:
@@ -9654,7 +9656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &250973291
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -22883,11 +22885,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 75
   playerMaxHealth: 75
+  extraLives: 0
   playerHealthRegenerationPerSecond: 2
   playerBaseDamage: 11
   playerSkillDamageMultiplier: 3
   regenTimeout: 0
   LerpDuration: 0.5
+  bubbleShieldActive: 0
   player: {fileID: 597146271}
   playerHealthBar: {fileID: 2022659812}
   healthText: {fileID: 735106834}
@@ -22895,7 +22899,7 @@ MonoBehaviour:
   deathMenu: {fileID: 1598959559}
   winMenu: {fileID: 0}
   HUD: {fileID: 765263968}
-  bgBlur: {fileID: 0}
+  bubbleShield: {fileID: 0}
   experienceCurve:
     serializedVersion: 2
     m_Curve:
@@ -26519,6 +26523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 1015376881}
+  crossFade: {fileID: 0}
 --- !u!114 &968775935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38446,6 +38451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 0}
+  crossFade: {fileID: 0}
 --- !u!114 &1574517941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47685,6 +47691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 246681481}
+  crossFade: {fileID: 0}
 --- !u!114 &2024379356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48146,6 +48153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 1631795576}
+  crossFade: {fileID: 0}
 --- !u!114 &2029334214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48368,6 +48376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 952917926}
+  crossFade: {fileID: 0}
 --- !u!114 &2031585844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48562,6 +48571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 0}
+  crossFade: {fileID: 0}
 --- !u!114 &2037550917
 MonoBehaviour:
   m_ObjectHideFlags: 0

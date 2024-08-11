@@ -5371,7 +5371,7 @@ GameObject:
   - component: {fileID: 1816201788}
   - component: {fileID: 1816201787}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5386,11 +5386,11 @@ AudioSource:
   m_GameObject: {fileID: 1816201786}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 4fa123678aeeb4623a5ab4ad61d535d4,
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b806d1598c7f14d79893b6fedf416f8c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 387dd1f27c2ed3a4487a67a2ee82c118, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 101b351bf5dc4b14f9b247c6821e2cf8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12401,7 +12401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &9095323294604600452
 GameObject:
   m_ObjectHideFlags: 0

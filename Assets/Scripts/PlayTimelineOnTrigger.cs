@@ -1,31 +1,49 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class PlayTimelineOnTrigger : MonoBehaviour
 {
-    private PlayableDirector playableDirector;
-    private bool hasPlayed = false;
+    public GameObject cutsceneCam; // The camera for the cutscene
+    public PlayableDirector playableDirector; // Reference to the PlayableDirector
+    public double cutsceneDuration = 32; // Duration of the cutscene (in seconds)
 
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        playableDirector = GetComponent<PlayableDirector>();
-
-        if (playableDirector == null)
+        if (other.CompareTag("Player")) // Optional: Trigger only if the player enters
         {
-            Debug.LogWarning("PlayableDirector component not found on this GameObject.");
+            // Disable the collider to prevent multiple triggers
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+            // Activate the cutscene camera
+            cutsceneCam.SetActive(true);
+            GameManager.instance.HUD.SetActive(false);
+           // GameManager.instance.transform.Find("MainCamera").gameObject.SetActive(false);
+
+            // Play the cutscene
+            if (playableDirector != null)
+            {
+                playableDirector.Play();
+                cutsceneDuration = playableDirector.duration; // Get the actual duration of the cutscene
+            }
+
+            // Start coroutine to handle the end of the cutscene
+            StartCoroutine(FinishCut());
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    IEnumerator FinishCut()
     {
-        if (!hasPlayed && other.CompareTag("Player"))
-        {
-            playableDirector.Play();
-            hasPlayed = true;
-        }
+        // Wait for the cutscene duration
+        yield return new WaitForSeconds((float)cutsceneDuration);
+
+        // Reactivate the MainCamera
+      //  GameManager.instance.transform.Find("MainCamera").gameObject.SetActive(true);
+
+        // Show HUD again
+        GameManager.instance.HUD.SetActive(true);
+
+        // Deactivate the cutscene camera
+        //cutsceneCam.SetActive(false);
     }
 }
-

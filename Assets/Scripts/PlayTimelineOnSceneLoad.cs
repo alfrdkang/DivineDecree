@@ -6,20 +6,25 @@ using UnityEngine.Playables;
 public class PlayTimelineOnSceneLoad : MonoBehaviour
 {
     private PlayableDirector playableDirector;
+    private string timelinePlayedKey = "TimelinePlayed";
 
-    // Start is called before the first frame update
     void Start()
     {
         playableDirector = GetComponent<PlayableDirector>();
 
-        if (playableDirector != null)
+        // Check if the timeline has already been played
+        if (PlayerPrefs.GetInt(timelinePlayedKey, 0) == 0)
         {
-            playableDirector.Play();
-        }
-        else
-        {
-            Debug.LogWarning("PlayableDirector component not found on this GameObject.");
+            if (playableDirector != null)
+            {
+                playableDirector.Play();
+                PlayerPrefs.SetInt(timelinePlayedKey, 1); // Mark timeline as played
+                PlayerPrefs.Save(); // Save the PlayerPrefs changes
+            }
+            else
+            {
+                Debug.LogWarning("PlayableDirector component not found on this GameObject.");
+            }
         }
     }
 }
-
