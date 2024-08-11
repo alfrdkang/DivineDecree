@@ -11,7 +11,7 @@ public class BurrowBoss : MonoBehaviour
     public float enhancedDamage = 20f;
     public float stunDuration = 5f;
     public float chaseRange = 15f;
-    public Transform player;
+    private Transform player;
     public Canvas healthCanvas;
     public Image healthBar;
 
