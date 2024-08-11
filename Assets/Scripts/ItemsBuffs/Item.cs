@@ -9,4 +9,6 @@ public class Item : ScriptableObject
     public string itemDescription;
     public Sprite icon;
     public GameObject itemObj;
+    public bool cursed;
+    public int count = 1;
 }

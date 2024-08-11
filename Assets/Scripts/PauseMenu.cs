@@ -80,9 +80,10 @@ public class PauseMenu : MonoBehaviour
     {
         Resume(); // Resume the game
         Cursor.lockState = CursorLockMode.Locked; // Lock cursor
-        Scene scene = SceneManager.GetActiveScene(); // Get current scene
-        SceneManager.LoadScene(scene.name); // Reload current scene
+        SceneManager.LoadScene("beach");
 
-        gameManager.playerHealth = 75; // Reset player health (example value)
+        gameManager.playerMaxHealth = 75;
+        gameManager.playerHealth = gameManager.playerMaxHealth;
+        InventoryManager.instance.Items.Clear();
     }
 }

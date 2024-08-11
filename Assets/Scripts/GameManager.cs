@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public float playerMaxHealth = 75f;
 
+    public int extraLives = 0;
+
     public int playerHealthRegenerationPerSecond = 2;
 
     public float playerBaseDamage = 11;
@@ -40,6 +42,9 @@ public class GameManager : MonoBehaviour
 
     public float LerpDuration = 0.5f;
 
+    public bool bubbleShieldActive = false;
+    private int bubbleShieldCount = 0;
+
     private Coroutine healthBarLerpCoroutine;
     private Coroutine experienceBarLerpCoroutine;
 
@@ -49,8 +54,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private StarterAssetsInputs _inputs;
     [SerializeField] private GameObject deathMenu;
     [SerializeField] private GameObject winMenu;
-    [SerializeField] private GameObject HUD;
-    [SerializeField] private GameObject bgBlur;
+    public GameObject HUD;
+    [SerializeField] private GameObject bubbleShield;
 
     [SerializeField] AnimationCurve experienceCurve;
 
@@ -89,6 +94,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(HealthRegenerationPerSecond(playerHealthRegenerationPerSecond));
     }
 
+    public void BubbleShield()
+    {
+        if (!bubbleShieldActive)
+        {
+            Instantiate(bubbleShield, player.transform.position, player.transform.rotation, player.transform);
+        }
+        bubbleShieldActive = true;
+        bubbleShieldCount += 1;
+    }
+
+
     /// <summary>
     /// Moves the player to the next scene in the build index.
     /// </summary>
@@ -115,12 +131,23 @@ public class GameManager : MonoBehaviour
     /// <param name="damage">The amount of damage to apply.</param>
     public void PlayerDamage(int damage)
     {
+        if (bubbleShieldCount > 0)
+        {
+            damage -= (damage * bubbleShieldCount / 10);
+        }
         playerHealth -= damage;
         UpdateHealthUI();
 
         if (playerHealth <= 0)
         {
-            Death();
+            if (extraLives > 0)
+            {
+                extraLives -= 1;
+                playerHealth = playerMaxHealth;
+            } else
+            {
+                Death();
+            }
         }
 
         regenTimeout = 3; // change this for regen timeout timer in seconds
@@ -131,23 +158,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Death()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f;
-        deathMenu.SetActive(true);
-        HUD.SetActive(false);
-        bgBlur.SetActive(true);
+        StarterAssetsInputs.instance.inputs = false;
+        StartCoroutine(DeathSlowMo());
     }
 
-    /// <summary>
-    /// Handles the player winning, triggering the win menu and pausing the game.
-    /// </summary>
-    public void Win()
+    private IEnumerator DeathSlowMo()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0f;
-        winMenu.SetActive(true);
         HUD.SetActive(false);
-        bgBlur.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0.3f;
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0f;
+        deathMenu.SetActive(true);
     }
 
     /// <summary>

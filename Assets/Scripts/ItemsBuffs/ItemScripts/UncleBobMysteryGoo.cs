@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StarterAssets;
 
 public class UncleBobMysteryGoo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.instance.playerBaseDamage *= 1.5f;
+        ThirdPersonController.instance.MoveSpeed *= 0.7f;
+        ThirdPersonController.instance.SprintSpeed *= 0.7f;
     }
 }

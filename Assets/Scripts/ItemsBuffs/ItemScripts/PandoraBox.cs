@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class PandoraBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        GameManager.instance.playerMaxHealth = GameManager.instance.playerMaxHealth / 2;
+        StartCoroutine(ThreeItems());
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator ThreeItems()
     {
-        
+        ItemChoice.instance.itemChoiceUI.SetActive(true);
+        ItemChoice.instance.DisplayItemChoices();
+        while (ItemChoice.instance.ChoiceUIActive)
+        {
+            yield return null;
+        }
+        ItemChoice.instance.itemChoiceUI.SetActive(true);
+        ItemChoice.instance.DisplayItemChoices();
+        while (ItemChoice.instance.ChoiceUIActive)
+        {
+            yield return null;
+        }
+        ItemChoice.instance.itemChoiceUI.SetActive(true);
+        ItemChoice.instance.DisplayItemChoices();
     }
 }

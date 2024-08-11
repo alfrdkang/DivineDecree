@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class ItemChoice : MonoBehaviour
 {
+    public bool cursedItems = true;
+
     public List<Item> Items;
 
     public Transform ItemChoiceContent;
@@ -16,7 +18,7 @@ public class ItemChoice : MonoBehaviour
 
     public static ItemChoice instance;
     public GameObject itemChoiceUI;
-    private bool ChoiceUIActive;
+    public bool ChoiceUIActive;
 
     [SerializeField] private GameObject HUD; // Reference to the in-game HUD UI
 
@@ -24,13 +26,14 @@ public class ItemChoice : MonoBehaviour
     {
         instance = this;
         itemChoiceUI.SetActive(false);
-        ChoiceUIActive = true;
+        ChoiceUIActive = false;
     }
 
     public void DisplayItemChoices()
     {
-        Time.timeScale = 0f; // Stop time
-        HUD.SetActive(false); // Disable in-game HUD UI
+        ChoiceUIActive = true;
+        Time.timeScale = 0f;
+        HUD.SetActive(false);
         StarterAssetsInputs.instance.inputs = false;
         Cursor.lockState = CursorLockMode.None;
 
@@ -40,6 +43,10 @@ public class ItemChoice : MonoBehaviour
         {
             Item item = ItemChoices[Random.Range(0, ItemChoices.Count)];
 
+            while (!cursedItems && item.cursed)
+            {
+                item = ItemChoices[Random.Range(0, ItemChoices.Count)];
+            }
             GameObject obj = Instantiate(ItemChoiceItem, ItemChoiceContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
             var itemIcon = obj.transform.Find("ItemImg").GetComponent<Image>();
@@ -59,6 +66,7 @@ public class ItemChoice : MonoBehaviour
 
     public void Choice()
     {
+        ChoiceUIActive = false;
         Debug.Log(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.Find("ItemName").GetComponent<TextMeshProUGUI>().text);
 
         foreach (Transform child in ItemChoiceContent)

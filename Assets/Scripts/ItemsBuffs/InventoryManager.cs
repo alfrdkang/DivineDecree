@@ -9,6 +9,7 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
     public List<Item> Items = new List<Item>();
+    private List<Item> DisplayedItems = new List<Item>();
 
     public Transform ItemContent;
     public GameObject InventoryItem;
@@ -43,18 +44,20 @@ public class InventoryManager : MonoBehaviour
 
     public void Add(Item item)
     {
+        if (Items.Contains(item))
+        {
+            item.count += 1;
+        } else
+        {
+            item.count = 1;
+        }
         Items.Add(item);
         Instantiate(item.itemObj);
     }
 
-    public void Remove(Item item)
-    {
-        Items.Remove(item);
-        Destroy(item.itemObj);
-    }
-
     public void ListItems()
     {
+        DisplayedItems.Clear();
         foreach (Transform item in ItemContent)
         {
             Destroy(item.gameObject);
@@ -62,12 +65,28 @@ public class InventoryManager : MonoBehaviour
 
         foreach (var item in Items)
         {
-            GameObject obj = Instantiate(InventoryItem, ItemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
-            var itemIcon = obj.transform.Find("ItemImg").GetComponent<Image>();
+            if (!DisplayedItems.Contains(item))
+            {
+                GameObject obj = Instantiate(InventoryItem, ItemContent);
+                var itemName = obj.transform.Find("ItemName").GetComponent<TextMeshProUGUI>();
+                var itemIcon = obj.transform.Find("ItemImg").GetComponent<Image>();
+                var itemCount = obj.transform.Find("ItemCount").gameObject;
+                var itemCountText = itemCount.transform.Find("ItemCountText").GetComponent<TextMeshProUGUI>();
 
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.icon;
+                itemName.text = item.itemName;
+                itemIcon.sprite = item.icon;
+                if (item.count > 1)
+                {
+                    itemCount.SetActive(true);
+                    itemCountText.text = (item.count).ToString();
+                }
+                else
+                {
+                    itemCount.SetActive(false);
+                }
+
+                DisplayedItems.Add(item);
+            }
         }
     }
 }
