@@ -9238,6 +9238,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &1199928331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3992439370510860200, guid: fbbf3900ba7047841bfdd434c71d0cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6881228499656108336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4140e9f9323354d9689606b0e0d523e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250411557
 GameObject:
   m_ObjectHideFlags: 0
@@ -21828,6 +21840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1199928331}
+    - target: {fileID: 1703004007216964181, guid: fbbf3900ba7047841bfdd434c71d0cc0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 1824553768422354195, guid: fbbf3900ba7047841bfdd434c71d0cc0,
         type: 3}
@@ -22405,14 +22422,12 @@ PrefabInstance:
         type: 3}
       propertyPath: weathers.Array.data[2]
       value: 
-      objectReference: {fileID: 3035227174303176398, guid: 5e19eef77fbf943e2b019bfa43a43dc8,
-        type: 3}
+      objectReference: {fileID: 122790, guid: d4946b3a36303400ca000f0ab00142e1, type: 3}
     - target: {fileID: 5251823426803030664, guid: fbbf3900ba7047841bfdd434c71d0cc0,
         type: 3}
       propertyPath: weathers.Array.data[3]
       value: 
-      objectReference: {fileID: 5489527970673306300, guid: 7cdf87b78a60b9044ab257c1dc34c900,
-        type: 3}
+      objectReference: {fileID: 122790, guid: d4946b3a36303400ca000f0ab00142e1, type: 3}
     - target: {fileID: 5251823426803030664, guid: fbbf3900ba7047841bfdd434c71d0cc0,
         type: 3}
       propertyPath: weathers.Array.data[4]
