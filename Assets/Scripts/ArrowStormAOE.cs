@@ -6,6 +6,7 @@ public class ArrowStormAOE : MonoBehaviour
 {
 
     [SerializeField] private GameObject boomText;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == ("Enemy"))

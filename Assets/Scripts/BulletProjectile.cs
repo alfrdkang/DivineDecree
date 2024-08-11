@@ -23,14 +23,15 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
         if (!(other.tag == "TriggerArea"))
         {
             if (other.tag == "Enemy")
             {
-                if (TryGetComponent(out EnemyAI enemyAI))
+                if (other.gameObject.TryGetComponent(out EnemyAI enemyAI))
                 {
                     other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
-                } else if (TryGetComponent(out RangedEnemyAI rangedEnemyAI))
+                } else if (other.gameObject.TryGetComponent(out RangedEnemyAI rangedEnemyAI))
                 {
                     other.gameObject.GetComponent<RangedEnemyAI>().TakeDamage((int)damage);
                 }

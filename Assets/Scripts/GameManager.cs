@@ -67,15 +67,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI experienceText;
     [SerializeField] Image experienceBar;
 
-    private void Update()
-    {
-        //debug
-        if (Input.GetMouseButtonDown(0))
-        {
-            AddExperience(10);
-        }
-    }
-
     private void Awake()
     {
         if (instance == null)

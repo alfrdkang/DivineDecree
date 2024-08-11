@@ -12303,7 +12303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: {fileID: 0}
-  crossFade: {fileID: 0}
+  crossFade: {fileID: 1184085247}
 --- !u!222 &9095323293350463888
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -43,6 +43,11 @@ public class ThirdPersonShooter : MonoBehaviour
     public float skillCD = 5f;
     public float shootCD = 1f;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip arrowStormClip;
+    [SerializeField] private AudioClip arrowCharging;
+    [SerializeField] private AudioClip arrowShot;
+
     private void AssignAnimationIDs()
     {
         _animIDSpeed = Animator.StringToHash("Speed");
@@ -91,6 +96,7 @@ public class ThirdPersonShooter : MonoBehaviour
 
             if (!playingChargeVFX)
             {
+                audioSource.PlayOneShot(arrowCharging, 0.8f);
                 StartCoroutine(ChargingVFX(bow.transform, transform));
             }
             _animator.SetBool(_animIDAiming, true);
@@ -185,12 +191,15 @@ public class ThirdPersonShooter : MonoBehaviour
     private IEnumerator SkillVFX(Transform arrowLocation, Transform player)
     {
         playingSkillVFX = true;
+        audioSource.clip = arrowStormClip;
+        audioSource.Play();
         yield return new WaitForSeconds(0.8f);
         GameObject skillCircleVFXObj = GameObject.Instantiate(skillCircle, player.position, player.rotation) as GameObject;
         GameObject meteorVFXObj = GameObject.Instantiate(meteor, player.position, player.rotation) as GameObject;
         yield return new WaitForSeconds(3f);
         Destroy(skillCircleVFXObj);
         Destroy(meteorVFXObj);
+        audioSource.Stop();
         playingSkillVFX = false;
         StarterAssetsInputs.instance.canMove = true;
     }
@@ -200,6 +209,7 @@ public class ThirdPersonShooter : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         for (int i = 0; i < numOfShots; i++)
         {
+            audioSource.PlayOneShot(arrowShot, 0.8f);
             bulletProjectile.damage = GameManager.instance.playerBaseDamage;
 
             yield return new WaitForSeconds(timeBtwnShots);
@@ -214,14 +224,6 @@ public class ThirdPersonShooter : MonoBehaviour
             }
         }
     }
-
-    //private IEnumerator Skill()
-    //{
-    //    yield return new WaitForSeconds(1f);
-    //    Vector3 aimDirection = (Vector3.down * Time.deltaTime).normalized;
-    //    Instantiate(bullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDirection, Vector3.up));
-    //    bulletProjectile.damage = GameManager.instance.playerBaseDamage * 3;
-    //}
 
     private IEnumerator SkillCooldown(Image loadingBar, float cooldown)
     {
