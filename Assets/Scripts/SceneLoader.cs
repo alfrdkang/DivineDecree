@@ -3,11 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
     public string sceneToLoad;
 
     public float loadDelay = 0f;
+
+    private void Start()
+    {
+        animator = GameManager.instance.gameObject.transform.Find("HUD").Find("Crossfade").GetComponent<Animator>();
+    }
 
     void OnTriggerEnter(Collider other)
     {

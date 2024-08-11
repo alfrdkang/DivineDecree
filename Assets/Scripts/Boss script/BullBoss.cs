@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BullBoss : MonoBehaviour
 {
@@ -12,9 +13,10 @@ public class BullBoss : MonoBehaviour
     public float idleRange = 20f;
     public float chaseRange = 15f;
     public float attackRange = 5f;
-    public float health = 100f;
-    public GameObject minionPrefab;
-    public Transform minionSpawnPoint;
+    public int health = 2000;
+    public Canvas healthCanvas; // Reference to the Canvas that contains the health bar
+    public Image healthBar; // Reference to the Foreground in health bar
+
 
     public enum BossState { Idle, Chase, Attack1, Attack2, Attack3, Dead }
     public BossState currentState = BossState.Idle;
@@ -105,7 +107,7 @@ public class BullBoss : MonoBehaviour
         }
         else
         {
-            RoarAttack();
+            Attack1();
 
             if (health <= 75f)
             {
@@ -125,7 +127,7 @@ public class BullBoss : MonoBehaviour
         }
         else
         {
-            ClawAttack();
+            Attack2();
 
             if (health <= 25f)
             {
@@ -145,7 +147,7 @@ public class BullBoss : MonoBehaviour
         }
         else
         {
-            AoeAttack();
+            Attack3();
         }
     }
 
@@ -155,23 +157,23 @@ public class BullBoss : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void RoarAttack()
+    void Attack1()
     {
         Debug.Log("Roar attack dealing 5 damage");
         DealDamage(5, 10f); // Roar damage radius
     }
 
-    void ClawAttack()
+    void Attack2()
     {
         Debug.Log("Claw attack dealing 15 damage");
         DealDamage(15, attackRange);
     }
 
-    void AoeAttack()
+    void Attack3()
     {
         Debug.Log("AOE attack dealing 10 damage and summoning minions");
         DealDamage(10, attackRange);
-        SpawnMinions();
+ 
     }
 
     void DealDamage(float damage, float radius)
@@ -187,18 +189,23 @@ public class BullBoss : MonoBehaviour
         }
     }
 
-    void SpawnMinions()
-    {
-        Instantiate(minionPrefab, minionSpawnPoint.position, minionSpawnPoint.rotation);
-        // Additional logic to handle minions
-    }
-
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
         {
             currentState = BossState.Dead;
+        }
+    }
+
+    public void UpdateHealthBar()
+    {
+        if (healthCanvas != null)
+        {
+            if (healthBar != null)
+            {
+                healthBar.fillAmount = (float)health / 1200f; // Assuming max health is 1200
+            }
         }
     }
 }

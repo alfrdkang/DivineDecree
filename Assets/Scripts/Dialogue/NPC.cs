@@ -22,6 +22,11 @@ public class NPC : Interactable
         gameObject.GetComponent<Outline>().enabled = false;
     }
 
+    private void Update()
+    {
+        diagVirtualCamera = GameManager.instance.gameObject.transform.Find("PlayerDiagCamera").GetComponent<CinemachineVirtualCamera>();
+    }
+
     public override void Interact(GameManager gameManager, TextMeshProUGUI interactText)
     {
         base.Interact(gameManager, interactText);
