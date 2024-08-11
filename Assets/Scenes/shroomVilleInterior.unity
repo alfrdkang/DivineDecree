@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 146658211}
   - component: {fileID: 146658210}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Player Teleporter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8e995e6a49d7b4f9446e72bdeb0fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPosition: {x: -1.7, y: 9.2, z: -8.55}
+  startPosition: {x: -1.76, y: 8.8, z: -7.11}
   player: {fileID: 0}
 --- !u!4 &146658211
 Transform:

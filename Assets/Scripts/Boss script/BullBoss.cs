@@ -23,6 +23,7 @@ public class BullBoss : MonoBehaviour
 
     void Start()
     {
+        player = GameManager.instance.transform.Find("PlayerArmature").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }

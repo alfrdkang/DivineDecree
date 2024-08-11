@@ -28,6 +28,7 @@ public class TreeBoss : MonoBehaviour
 
     void Start()
     {
+        Player = GameManager.instance.transform.Find("PlayerArmature");
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         lastAttack1Time = -attack1Cooldown;  // Initialize so the boss can attack immediately

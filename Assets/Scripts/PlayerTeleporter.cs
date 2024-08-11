@@ -25,20 +25,4 @@ public class PlayerTeleporter : MonoBehaviour
             Debug.LogError("Player GameObject is not assigned!");
         }
     }
-
-    // Optional: If you want to teleport the player each time a new scene is loaded
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        TeleportPlayerToStart();
-    }
 }
