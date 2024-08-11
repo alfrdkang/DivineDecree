@@ -6,8 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/mainmenu.unity
+    guid: 6de3d60b1c0f54a9d99fe5d24220df75
+  - enabled: 1
+    path: Assets/Scenes/Beach/Beach.unity
+    guid: 9c1b9ffdd9ce64478aa82c1643be4f1e
+  - enabled: 1
+    path: Assets/Scenes/TutorialCave.unity
+    guid: 9cedc7e37ab11b24b973589964f448cb
+  - enabled: 1
+    path: Assets/Scenes/forest.unity
+    guid: d334e1bb5216c474cb612544617c567b
+  - enabled: 1
+    path: Assets/Scenes/shroomVilleInterior.unity
+    guid: 5b0a91eea98083f49931dc527641ebd8
+  - enabled: 1
+    path: Assets/Scenes/EnemyInterior.unity
+    guid: 0076c1edda267a14eaa3de641c868c99
+  - enabled: 1
+    path: Assets/Scenes/Tundra.unity
+    guid: 21d7b236625102540ad7aeb6aa9e0a5f
+  - enabled: 1
+    path: Assets/Scenes/Surreal.unity
+    guid: b945ca912d28c1a4b84bafe98891fc25
+  - enabled: 1
+    path: Assets/Starter Assets/Sample/ThirdPersonController/Playground.unity
+    guid: e9017d5f96b9f09489b4b37e1d6eb914
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}

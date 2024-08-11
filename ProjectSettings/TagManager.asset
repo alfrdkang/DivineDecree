@@ -10,6 +10,8 @@ TagManager:
   - GameManager
   - ActiveWeapon
   - Secondary
+  - FxTemporaire
+  - Crate
   layers:
   - Default
   - TransparentFX

@@ -7,8 +7,8 @@ public class BullBoss : MonoBehaviour
 {
     public Transform player;
     public Transform spawnPoint;
-    public NavMeshAgent agent;
-    public Animator animator;
+    private NavMeshAgent agent;
+    private Animator animator;
     public float idleRange = 20f;
     public float chaseRange = 15f;
     public float attackRange = 5f;
@@ -152,8 +152,6 @@ public class BullBoss : MonoBehaviour
     void DeadState()
     {
         animator.SetBool("isDead", true);
-        Debug.Log("BullBoss died");
-        // Hide the boss
         gameObject.SetActive(false);
     }
 

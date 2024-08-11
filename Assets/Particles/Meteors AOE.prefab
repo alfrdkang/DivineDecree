@@ -4943,6 +4943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f734f87bf1f84fc299215747a723554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boomText: {fileID: 5339739117810204693, guid: 26e1cb216e3635e4a820f58a1118d6b9,
+    type: 3}
 --- !u!136 &2660890371568842606
 CapsuleCollider:
   m_ObjectHideFlags: 0

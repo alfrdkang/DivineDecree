@@ -27,12 +27,25 @@ public class BulletProjectile : MonoBehaviour
         {
             if (other.tag == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
+                if (TryGetComponent(out EnemyAI enemyAI))
+                {
+                    other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
+                } else if (TryGetComponent(out RangedEnemyAI rangedEnemyAI))
+                {
+                    other.gameObject.GetComponent<RangedEnemyAI>().TakeDamage((int)damage);
+                }
+
                 Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
             }
             else if (other.tag == "Boss")
             {
                 other.gameObject.GetComponent<TreeBoss>().TakeDamage((int)damage);
+                Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
+            } else if (other.tag == "Crate")
+            {
+                ItemChoice.instance.itemChoiceUI.SetActive(true);
+                ItemChoice.instance.DisplayItemChoices();
+                Destroy(other.gameObject);
                 Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
             }
             else

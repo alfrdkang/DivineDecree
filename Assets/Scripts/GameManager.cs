@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject HUD;
     [SerializeField] private GameObject bgBlur;
 
-    private Animator animator;
     [SerializeField] AnimationCurve experienceCurve;
 
     public int currentLevel;
@@ -83,8 +82,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        animator = GetComponent<Animator>();
 
         UpdateHealthUI();
         UpdateLevel();

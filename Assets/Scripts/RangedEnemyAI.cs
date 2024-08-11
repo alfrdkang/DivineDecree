@@ -12,7 +12,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Controls the behavior and interactions of an enemy character using NavMesh for navigation and health management.
 /// </summary>
-public class EnemyAI : MonoBehaviour
+public class RangedEnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent; // Reference to the NavMeshAgent component for navigation
 
@@ -22,10 +22,13 @@ public class EnemyAI : MonoBehaviour
 
     public float maxHealth; // Maximum health of the enemy
     private float health; // Current health of the enemy
-    [SerializeField] private int damage; // Amount of damage dealt to the player
     [SerializeField] private Image healthbar; // UI element displaying health bar
     [SerializeField] private GameObject healthBarCanvas; // Canvas containing health bar UI
     [SerializeField] private GameObject damageText; // Text displaying damage enemy took
+    [SerializeField] private GameObject fireBreath;
+
+    private GameObject fireBreathObj;
+
     private Camera cam; // Main camera reference
     private Animator animator; // Animator component reference
     private GameManager gameManager; // Reference to the game manager
@@ -34,10 +37,6 @@ public class EnemyAI : MonoBehaviour
     private Vector3 walkPoint; // Random point for patrolling
     bool walkPointSet; // Flag indicating if a walk point is set
     public float walkPointRange; // Range within which to set walk points
-
-    // Attack
-    public float timeBetweenAttacks; // Time between consecutive attacks
-    bool attacked; // Flag indicating if an attack has been performed
 
     // States
     public float sightRange, attackRange; // Range for sight and attack detection
@@ -105,6 +104,11 @@ public class EnemyAI : MonoBehaviour
         {
             walkPointSet = false; // Reset walk point if reached
         }
+
+        if (fireBreathObj != null)
+        {
+            Destroy(fireBreathObj);
+        }
     }
 
     private void SearchWalkPoint()
@@ -131,11 +135,11 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player); // Rotate to face player
-    }
 
-    private void ResetAtk()
-    {
-        attacked = false; // Reset attack flag
+        if (fireBreathObj == null)
+        {
+            fireBreathObj = Instantiate(fireBreath, transform.position, transform.rotation, transform);
+        }
     }
 
     /// <summary>
@@ -156,36 +160,6 @@ public class EnemyAI : MonoBehaviour
             agent.SetDestination(transform.position); // Stop moving
             animator.SetTrigger("death");
             Invoke(nameof(DestroyEnemy), 2f); // Destroy enemy after delay
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (!attacked) 
-            {
-                animator.SetTrigger("attack");
-                gameManager.PlayerDamage(damage); // Damage player
-
-                attacked = true; // Set attacked flag
-                Invoke(nameof(ResetAtk), timeBetweenAttacks); // Reset attack timer
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (!attacked)
-            {
-                animator.SetTrigger("attack");
-                gameManager.PlayerDamage(damage); // Damage player
-
-                attacked = true; // Set attacked flag
-                Invoke(nameof(ResetAtk), timeBetweenAttacks); // Reset attack timer
-            }
         }
     }
 
