@@ -5431,6 +5431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98976ab95af3934988a8d1c7e7962d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 607435485}
   sceneToLoad: TutorialCave
   loadDelay: 2
 --- !u!65 &494484317
@@ -5621,6 +5622,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diagVirtualCamera: {fileID: 8321201335194007772}
   dialogue: {fileID: 11400000, guid: 71adfbe59ac514b29bde7afc68f55fd1, type: 2}
+--- !u!95 &607435485 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3946696070294176299, guid: fbbf3900ba7047841bfdd434c71d0cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6881228499656108336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &665377122
 GameObject:
   m_ObjectHideFlags: 0
