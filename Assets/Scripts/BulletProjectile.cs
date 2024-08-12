@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
@@ -23,7 +21,6 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (!(other.tag == "TriggerArea"))
         {
             if (other.tag == "Enemy")
@@ -31,7 +28,8 @@ public class BulletProjectile : MonoBehaviour
                 if (other.gameObject.TryGetComponent(out EnemyAI enemyAI))
                 {
                     other.gameObject.GetComponent<EnemyAI>().TakeDamage((int)damage);
-                } else if (other.gameObject.TryGetComponent(out RangedEnemyAI rangedEnemyAI))
+                }
+                else if (other.gameObject.TryGetComponent(out RangedEnemyAI rangedEnemyAI))
                 {
                     other.gameObject.GetComponent<RangedEnemyAI>().TakeDamage((int)damage);
                 }
@@ -40,9 +38,23 @@ public class BulletProjectile : MonoBehaviour
             }
             else if (other.tag == "Boss")
             {
-                other.gameObject.GetComponent<TreeBoss>().TakeDamage((int)damage);
+                if (other.gameObject.GetComponent<TreeBoss>() != null)
+                {
+                    other.gameObject.GetComponent<TreeBoss>().TakeDamage((int)damage);
+                }
+                else if (other.gameObject.GetComponent<BurrowBoss>() != null)
+                {
+                    Debug.Log("damage?");
+                    other.gameObject.GetComponent<BurrowBoss>().TakeDamage((int)damage);
+                }
+                else if (other.gameObject.GetComponent<BullBoss>() != null)
+                {
+                    other.gameObject.GetComponent<BullBoss>().TakeDamage((int)damage);
+                }
+
                 Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
-            } else if (other.tag == "Crate")
+            }
+            else if (other.tag == "Crate")
             {
                 ItemChoice.instance.itemChoiceUI.SetActive(true);
                 ItemChoice.instance.DisplayItemChoices();

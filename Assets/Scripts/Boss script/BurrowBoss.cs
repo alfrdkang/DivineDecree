@@ -72,7 +72,7 @@ public class BurrowBoss : MonoBehaviour
         agent.isStopped = false;
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         currentHealth -= damage;
         UpdateHealthBar();  // Update the health bar when the boss takes damage

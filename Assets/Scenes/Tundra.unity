@@ -5569,7 +5569,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -5619,7 +5619,7 @@ MonoBehaviour:
   damage: 20
   enhancedDamage: 50
   stunDuration: 5
-  chaseRange: 100
+  chaseRange: 50
   healthCanvas: {fileID: 762061273}
   healthBar: {fileID: 1140474324}
 --- !u!64 &604337363
@@ -5637,11 +5637,11 @@ MeshCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!4 &604337364 stripped
@@ -5667,6 +5667,29 @@ MonoBehaviour:
   playableDirector: {fileID: 2012688622}
   player: {fileID: 0}
   cutsceneDuration: 32
+--- !u!136 &604337366
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604337353}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.7582909
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.37914574, z: 0}
 --- !u!1001 &609691201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7559,6 +7582,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787481964fc05da4684124e8aaa924ee, type: 3}
+--- !u!1 &862803999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8561617765415301808, guid: fbbf3900ba7047841bfdd434c71d0cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 945716450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &866234405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8041,6 +8070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596783985517636001, guid: fbbf3900ba7047841bfdd434c71d0cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5262866587947370303, guid: fbbf3900ba7047841bfdd434c71d0cc0,
         type: 3}
@@ -13037,7 +13071,7 @@ PrefabInstance:
     - target: {fileID: 3361834574544056098, guid: c73ae6621f8832748a78dfb8aec6dd12,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.08
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 3361834574544056098, guid: c73ae6621f8832748a78dfb8aec6dd12,
         type: 3}
@@ -14126,6 +14160,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 604337365}
+    - targetCorrespondingSourceObject: {fileID: 2732684518155842968, guid: c73ae6621f8832748a78dfb8aec6dd12,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 604337366}
     - targetCorrespondingSourceObject: {fileID: 2820010478787928848, guid: c73ae6621f8832748a78dfb8aec6dd12,
         type: 3}
       insertIndex: -1
@@ -16011,6 +16049,7 @@ GameObject:
   - component: {fileID: 1782834425}
   - component: {fileID: 1782834424}
   - component: {fileID: 1782834428}
+  - component: {fileID: 1782834429}
   m_Layer: 0
   m_Name: cutscentrigger
   m_TagString: TriggerArea
@@ -16045,9 +16084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b730ab82785654f7fb893dc1b9afe825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneCam: {fileID: 0}
-  playableDirector: {fileID: 0}
-  cutsceneDuration: 32
 --- !u!65 &1782834425
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16136,6 +16172,23 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1782834429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782834422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d57c98c1547f644169bef20ac53c4ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burrowBoss: {fileID: 604337361}
+  cutsceneCam: {fileID: 1752318054}
+  playableDirector: {fileID: 2012688622}
+  player: {fileID: 0}
+  cutsceneDuration: 32
 --- !u!1001 &1817416829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17784,7 +17837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &2012688622
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -17795,7 +17848,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: bb944e8cdb24140aead5f90be4c86230, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -17882,7 +17935,7 @@ MonoBehaviour:
   burrowBoss: {fileID: 604337361}
   cutsceneCam: {fileID: 1752318054}
   playableDirector: {fileID: 2012688622}
-  player: {fileID: 0}
+  player: {fileID: 862803999}
   cutsceneDuration: 31
 --- !u!1001 &2013666578
 PrefabInstance:
@@ -18790,7 +18843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2131155547
 MonoBehaviour:
   m_ObjectHideFlags: 0
