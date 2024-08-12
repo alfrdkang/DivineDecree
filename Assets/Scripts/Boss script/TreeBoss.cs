@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class TreeBoss : MonoBehaviour
 {
     public Transform Player;
-    public Transform spawnPoint;
     public NavMeshAgent agent;
     public Animator animator;
     public float idleRange = 20f;
@@ -65,6 +64,7 @@ public class TreeBoss : MonoBehaviour
 
         if (health <= 0 && currentState != BossState.Dead)
         {
+            GameManager.instance.AddExperience(70);
             currentState = BossState.Dead;
         }
     }
@@ -77,10 +77,6 @@ public class TreeBoss : MonoBehaviour
         if (distanceToPlayer <= chaseRange)
         {
             currentState = BossState.Chase;
-        }
-        else
-        {
-            agent.SetDestination(spawnPoint.position);
         }
     }
 

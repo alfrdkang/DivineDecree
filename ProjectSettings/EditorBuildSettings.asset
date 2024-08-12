@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Surreal.unity
     guid: b945ca912d28c1a4b84bafe98891fc25
   - enabled: 1
+    path: Assets/Scenes/victory.unity
+    guid: 3c9038de3b5d9bc448762a83b575e5c8
+  - enabled: 1
     path: Assets/Starter Assets/Sample/ThirdPersonController/Playground.unity
     guid: e9017d5f96b9f09489b4b37e1d6eb914
   m_configObjects:

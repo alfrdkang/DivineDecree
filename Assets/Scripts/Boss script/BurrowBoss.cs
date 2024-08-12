@@ -79,6 +79,7 @@ public class BurrowBoss : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            GameManager.instance.AddExperience(70);
             Die();
         }
     }

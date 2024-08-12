@@ -41,6 +41,14 @@ public class PauseMenu : MonoBehaviour
                 Pause(); // Pause the game if not already paused
             }
         }
+
+        if (IsPaused)
+        {
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
     }
 
     /// <summary>

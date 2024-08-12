@@ -12,7 +12,7 @@ public class RandomSpawner : MonoBehaviour
     private void Start()
     {
         spawnAllowed = true;
-        InvokeRepeating("SpawnAMonster", 0f, 1f);
+        InvokeRepeating("SpawnAMonster", 0f, 3f);
     }
 
     public void SpawnAMonster()

@@ -60,6 +60,17 @@ public class MainMenuBtn : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Restarts the game from the beginning.
+    /// </summary>
+    public void Restart()
+    {
+        Cursor.lockState = CursorLockMode.Locked; // Lock cursor
+        SceneManager.LoadScene("beach");
+
+        InventoryManager.instance.Items.Clear();
+    }
+
     public void QuitApp()
     {
         Application.Quit();

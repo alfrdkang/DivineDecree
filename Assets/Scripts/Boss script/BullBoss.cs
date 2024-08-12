@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BullBoss : MonoBehaviour
@@ -30,6 +31,7 @@ public class BullBoss : MonoBehaviour
 
     void Start()
     {
+        player = ThirdPersonShooter.instance.transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         lastAttack1Time = -attack1Cooldown;  // Initialize so the boss can attack immediately
@@ -66,6 +68,8 @@ public class BullBoss : MonoBehaviour
 
         if (health <= 0 && currentState != BossState.Dead)
         {
+            Destroy(GameManager.instance.gameObject);
+            SceneManager.LoadScene("victory");
             currentState = BossState.Dead;
         }
     }
@@ -188,7 +192,7 @@ public class BullBoss : MonoBehaviour
     {
         health -= damage;
         UpdateHealthBar(); // Update the health bar whenever the boss takes damage
-        Debug.Log("Taken damage");
+        
     }
 
     public void UpdateHealthBar()

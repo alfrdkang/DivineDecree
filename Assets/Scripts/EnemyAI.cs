@@ -153,6 +153,8 @@ public class EnemyAI : MonoBehaviour
 
         if (health <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
+            GameManager.instance.AddExperience(10);
             agent.SetDestination(transform.position); // Stop moving
             animator.SetTrigger("death");
             Invoke(nameof(DestroyEnemy), 2f); // Destroy enemy after delay
