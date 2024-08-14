@@ -28,10 +28,6 @@ The player’s goal is to return to your home:
 2. Locate the Wooly Mammoth.
 3. Decide if you want to stay and help or return home.
 
-### Admin/Game Hack
-
----
-
 ## Game Mechanics
 
 ### Collectibles
@@ -54,6 +50,7 @@ The player’s goal is to return to your home:
   - Ci
   - Xiong
   - Xiaomao
+  - Mammoth
 
 #### Teleporter
 - Summons Miniboss.
@@ -89,11 +86,6 @@ The player’s goal is to return to your home:
 ---
 
 ## Limitations, Bugs, and Future Implementations
-
-### Bugs
-
-#### Camera
-- When dashing or looking up close at maze walls at specific angles, the camera sometimes glitches and allows players to look through the wall.
 
 ### Future Implementations
 
